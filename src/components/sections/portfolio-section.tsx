@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Section } from "../ui/section";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Eye, Github } from "lucide-react";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import React from "react";
 
 export const projects = [
   {
@@ -51,54 +52,99 @@ export const projects = [
 
 const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
   const image = PlaceHolderImages.find((img) => img.id === project.id);
+  const cardRef = React.useRef<HTMLDivElement>(null);
 
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+  
   return (
     <motion.div
-      layoutId={`project-card-${project.id}`}
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+      }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, type: 'spring' }}
       viewport={{ once: true, amount: 0.3 }}
       className="w-full"
     >
-      <Card className="group h-full overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/10">
-        <Link href={`/projetos/${project.id}`} scroll={false} className="block">
-          <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
-            {image && (
-              <Image
-                src={image.imageUrl}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                data-ai-hint={image.imageHint}
-              />
-            )}
-          </div>
-        </Link>
-        <CardContent className="p-6">
-          <h3 className="text-xl font-bold font-headline">{project.title}</h3>
-          <p className="text-muted-foreground mt-2 text-sm flex-grow">{project.description}</p>
-          <div className="flex flex-wrap gap-2 mt-4">
-            {project.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">{tag}</Badge>
-            ))}
-          </div>
-          <div className="flex items-center gap-4 mt-6">
-             <Button asChild size="sm" variant="outline">
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                    <Github className="mr-2 h-4 w-4"/>
-                    Código
-                </a>
-             </Button>
-             <Button asChild size="sm">
-                <Link href={`/projetos/${project.id}`} scroll={false}>
-                    <Eye className="mr-2 h-4 w-4"/>
-                    Demo
-                </Link>
-             </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <motion.div
+        layoutId={`project-card-${project.id}`}
+        style={{ transform: "translateZ(50px)" }}
+        className="w-full h-full"
+      >
+        <Card className="group h-full overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/10">
+          <Link href={`/projetos/${project.id}`} scroll={false} className="block">
+            <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
+              {image && (
+                <Image
+                  src={image.imageUrl}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  data-ai-hint={image.imageHint}
+                />
+              )}
+            </div>
+          </Link>
+          <CardContent className="p-6">
+            <h3 className="text-xl font-bold font-headline">{project.title}</h3>
+            <p className="text-muted-foreground mt-2 text-sm flex-grow">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mt-4">
+              {project.tags.map((tag) => (
+                <Badge key={tag} variant="secondary">{tag}</Badge>
+              ))}
+            </div>
+            <div className="flex items-center gap-4 mt-6">
+               <Button asChild size="sm" variant="outline">
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                      <Github className="mr-2 h-4 w-4"/>
+                      Código
+                  </a>
+               </Button>
+               <Button asChild size="sm">
+                  <Link href={`/projetos/${project.id}`} scroll={false}>
+                      <Eye className="mr-2 h-4 w-4"/>
+                      Demo
+                  </Link>
+               </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </motion.div>
   );
 };
@@ -106,7 +152,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
 export function PortfolioSection() {
   return (
     <Section id="projects" title="Trabalhos Selecionados" subtitle="Um vislumbre da minha paixão pela criação e resolução de problemas.">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12" style={{perspective: '1000px'}}>
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
