@@ -1,10 +1,11 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import { GlobalBackground } from '@/components/three/global-background';
 
 export const metadata: Metadata = {
   title: 'Lucca Silva Oliveira - Premium Digital Portfolio',
-  description: 'An ultra-modern, premium, visually impressive, and highly interactive portfolio for Lucca Silva Oliveira.',
+  description: 'Um portfólio ultramoderno, premium, visualmente impressionante e altamente interativo para Lucca Silva Oliveira.',
 };
 
 export default function RootLayout({
@@ -20,7 +21,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        {children}
+        <GlobalBackground />
+        <div className="relative z-10">
+          {children}
+        </div>
         <Toaster />
       </body>
     </html>

@@ -4,7 +4,6 @@ import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
-import { HeroBackground } from "../three/hero-background";
 import { gsap } from "gsap";
 
 export function HeroSection() {
@@ -46,7 +45,6 @@ export function HeroSection() {
 
   return (
     <section id="home" ref={containerRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      <HeroBackground />
       <div
         className="relative z-10 text-center px-4"
       >
