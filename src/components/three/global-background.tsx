@@ -16,12 +16,10 @@ const vertexShader = `
 `;
 
 const fragmentShader = `
-  uniform vec3 color;
   uniform sampler2D pointTexture;
   varying vec3 vColor;
   void main() {
-    gl_FragColor = vec4(vColor, 1.0);
-    gl_FragColor = gl_FragColor * texture2D(pointTexture, gl_PointCoord);
+    gl_FragColor = vec4(vColor, 1.0) * texture2D(pointTexture, gl_PointCoord);
   }
 `;
 
@@ -81,7 +79,6 @@ export function GlobalBackground() {
 
     const particlesMaterial = new THREE.ShaderMaterial({
       uniforms: {
-        color: { value: new THREE.Color(0xffffff) },
         pointTexture: { value: particleTexture },
       },
       vertexShader,
@@ -128,15 +125,14 @@ export function GlobalBackground() {
       const distance = -camera.position.z / dir.z;
       const pos = camera.position.clone().add(dir.multiplyScalar(distance));
 
-      const positions = particlesGeometry.attributes.position.array as Float32Array;
-      const sizes = particlesGeometry.attributes.size.array as Float32Array;
+      const positions = (particlesGeometry.attributes.position as THREE.BufferAttribute).array as Float32Array;
+      const sizes = (particlesGeometry.attributes.size as THREE.BufferAttribute).array as Float32Array;
 
       for (let i = 0; i < particlesCount; i++) {
         const i3 = i * 3;
         const particlePosition = new THREE.Vector3(positions[i3], positions[i3 + 1], positions[i3 + 2]);
         const dist = particlePosition.distanceTo(pos);
         
-        // Correctly access the array to update sizes
         const sizeAttribute = particlesGeometry.attributes.size as THREE.BufferAttribute;
 
         if (dist < 2) {
