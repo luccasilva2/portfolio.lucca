@@ -135,10 +135,14 @@ export function GlobalBackground() {
         const i3 = i * 3;
         const particlePosition = new THREE.Vector3(positions[i3], positions[i3 + 1], positions[i3 + 2]);
         const dist = particlePosition.distanceTo(pos);
+        
+        // Correctly access the array to update sizes
+        const sizeAttribute = particlesGeometry.attributes.size as THREE.BufferAttribute;
+
         if (dist < 2) {
-          sizes[i] = (Math.random() * 0.1 + 0.01) * (1 + (2-dist) * 2);
+          sizeAttribute.array[i] = (Math.random() * 0.1 + 0.01) * (1 + (2-dist) * 2);
         } else {
-          sizes[i] = Math.random() * 0.1 + 0.01;
+          sizeAttribute.array[i] = Math.random() * 0.1 + 0.01;
         }
       }
       particlesGeometry.attributes.size.needsUpdate = true;
