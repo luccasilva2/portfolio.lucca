@@ -1,4 +1,4 @@
-
+. 
 # Portfolio de Lucca Silva Oliveira
 
 Este é um portfólio ultramoderno, premium e visualmente impressionante para Lucca Silva Oliveira, construído com as mais recentes tecnologias de desenvolvimento web para criar uma experiência de usuário altamente interativa e cinematográfica.
