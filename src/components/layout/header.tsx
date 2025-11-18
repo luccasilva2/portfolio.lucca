@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { name: "About", href: "#about" },
+  { name: "Sobre", href: "#about" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
+  { name: "Projetos", href: "#projects" },
 ];
 
 export function Header() {
@@ -45,13 +45,13 @@ export function Header() {
               </Button>
             ))}
              <Button asChild className="ml-2">
-              <Link href="#contact">Contact Me</Link>
+              <Link href="#contact">Contato</Link>
             </Button>
           </nav>
           <div className="md:hidden">
             <Button onClick={toggleMobileMenu} variant="ghost" size="icon">
               <Menu className="h-6 w-6" />
-              <span className="sr-only">Open menu</span>
+              <span className="sr-only">Abrir menu</span>
             </Button>
           </div>
         </div>
@@ -68,11 +68,11 @@ export function Header() {
               <Logo />
               <Button onClick={toggleMobileMenu} variant="ghost" size="icon">
                 <X className="h-6 w-6" />
-                <span className="sr-only">Close menu</span>
+                <span className="sr-only">Fechar menu</span>
               </Button>
             </div>
             <nav className="mt-8 flex flex-col items-center space-y-4">
-              {[...navItems, {name: 'Contact', href: '#contact'}].map((item) => (
+              {[...navItems, {name: 'Contato', href: '#contact'}].map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}

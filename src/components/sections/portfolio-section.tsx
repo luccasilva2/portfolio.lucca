@@ -12,32 +12,32 @@ import { Button } from "../ui/button";
 const projects = [
   {
     id: "project-1",
-    title: "Futuristic Web App",
-    description: "An innovative platform for creative collaboration.",
+    title: "App Web Futurista",
+    description: "Uma plataforma inovadora para colaboração criativa.",
     tags: ["Next.js", "Three.js", "AI"],
     liveUrl: "#",
     githubUrl: "#",
   },
   {
     id: "project-2",
-    title: "E-commerce Redefined",
-    description: "A cutting-edge online store with immersive 3D product views.",
+    title: "E-commerce Redefinido",
+    description: "Uma loja online de ponta com visualizações imersivas de produtos em 3D.",
     tags: ["React", "WebGL", "Stripe"],
     liveUrl: "#",
     githubUrl: "#",
   },
   {
     id: "project-3",
-    title: "Data Visualization Dashboard",
-    description: "A powerful tool for visualizing complex datasets with interactive charts.",
+    title: "Dashboard de Visualização de Dados",
+    description: "Uma ferramenta poderosa para visualizar conjuntos de dados complexos com gráficos interativos.",
     tags: ["D3.js", "Firebase", "Tailwind"],
     liveUrl: "#",
     githubUrl: "#",
   },
   {
     id: "project-4",
-    title: "Generative Art Gallery",
-    description: "An online gallery showcasing AI-generated art pieces.",
+    title: "Galeria de Arte Gerativa",
+    description: "Uma galeria online que exibe peças de arte geradas por IA.",
     tags: ["Genkit", "Framer Motion", "Vercel"],
     liveUrl: "#",
     githubUrl: "#",
@@ -113,13 +113,13 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
              <Button asChild size="sm" variant="outline">
                 <Link href={project.githubUrl} target="_blank">
                     <Github className="mr-2 h-4 w-4"/>
-                    Code
+                    Código
                 </Link>
              </Button>
              <Button asChild size="sm">
                 <Link href={project.liveUrl} target="_blank">
                     <Eye className="mr-2 h-4 w-4"/>
-                    Live Demo
+                    Demo
                 </Link>
              </Button>
           </div>
@@ -130,7 +130,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
 
 export function PortfolioSection() {
   return (
-    <Section id="projects" title="Selected Works" subtitle="A glimpse into my passion for creation and problem-solving.">
+    <Section id="projects" title="Trabalhos Selecionados" subtitle="Um vislumbre da minha paixão pela criação e resolução de problemas.">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ perspective: "1000px" }}>
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />

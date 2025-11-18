@@ -12,6 +12,10 @@ interface SectionProps {
 }
 
 export function Section({ id, children, className, title, subtitle }: SectionProps) {
+  const titleParts = title.split(' ');
+  const firstWord = titleParts[0];
+  const restOfTitle = titleParts.slice(1).join(' ');
+
   return (
     <section id={id} className={cn("py-20 lg:py-32", className)}>
       <div className="container mx-auto px-6">
@@ -23,8 +27,8 @@ export function Section({ id, children, className, title, subtitle }: SectionPro
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-extrabold font-headline tracking-tight">
-            <span className="text-gradient">{title.split(' ')[0]}</span>{' '}
-            {title.split(' ').slice(1).join(' ')}
+            {firstWord && <span className="text-gradient">{firstWord}</span>}
+            {restOfTitle && ` ${restOfTitle}`}
           </h2>
           {subtitle && (
             <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">

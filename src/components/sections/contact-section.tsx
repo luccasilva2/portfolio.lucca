@@ -20,9 +20,9 @@ import { Section } from "../ui/section";
 import { Send } from "lucide-react";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres." }),
+  email: z.string().email({ message: "Por favor, insira um email válido." }),
+  message: z.string().min(10, { message: "A mensagem deve ter pelo menos 10 caracteres." }),
 });
 
 export function ContactSection() {
@@ -40,14 +40,14 @@ export function ContactSection() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
+      title: "Mensagem Enviada!",
+      description: "Obrigado por entrar em contato. Retornarei em breve.",
     });
     form.reset();
   }
 
   return (
-    <Section id="contact" title="Let's Connect" subtitle="Have a project in mind or just want to say hello? Drop me a line.">
+    <Section id="contact" title="Vamos nos Conectar" subtitle="Tem um projeto em mente ou só quer dizer olá? Me mande uma mensagem.">
       <motion.div
         className="max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 50 }}
@@ -63,9 +63,9 @@ export function ContactSection() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Nome</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Name" {...field} className="bg-card"/>
+                      <Input placeholder="Seu Nome" {...field} className="bg-card"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -78,7 +78,7 @@ export function ContactSection() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="your.email@example.com" {...field} className="bg-card"/>
+                      <Input placeholder="seu.email@example.com" {...field} className="bg-card"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -90,9 +90,9 @@ export function ContactSection() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel>Mensagem</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Tell me about your project or idea..." {...field} rows={6} className="bg-card"/>
+                    <Textarea placeholder="Me fale sobre seu projeto ou ideia..." {...field} rows={6} className="bg-card"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -101,7 +101,7 @@ export function ContactSection() {
             <div className="text-center">
               <Button type="submit" size="lg">
                 <Send className="mr-2 h-4 w-4" />
-                Send Message
+                Enviar Mensagem
               </Button>
             </div>
           </form>

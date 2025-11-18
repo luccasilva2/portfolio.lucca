@@ -15,33 +15,33 @@ import { Section } from "../ui/section";
 const skills = [
   {
     icon: Code,
-    title: "Frontend Development",
-    description: "Crafting beautiful and responsive user interfaces with React, Next.js, and modern CSS.",
+    title: "Desenvolvimento Frontend",
+    description: "Criando interfaces de usuário bonitas e responsivas com React, Next.js e CSS moderno.",
   },
   {
     icon: Database,
-    title: "Backend Development",
-    description: "Building robust and scalable server-side applications using Node.js, Python, and SQL/NoSQL databases.",
+    title: "Desenvolvimento Backend",
+    description: "Construindo aplicações do lado do servidor robustas e escaláveis usando Node.js, Python e bancos de dados SQL/NoSQL.",
   },
   {
     icon: Cloud,
     title: "DevOps & Cloud",
-    description: "Automating workflows and deploying applications on platforms like Vercel, AWS, and Google Cloud.",
+    description: "Automatizando fluxos de trabalho e implantando aplicações em plataformas como Vercel, AWS e Google Cloud.",
   },
   {
     icon: Smartphone,
-    title: "Responsive Design",
-    description: "Ensuring seamless experiences across all devices, from mobile phones to desktops.",
+    title: "Design Responsivo",
+    description: "Garantindo experiências perfeitas em todos os dispositivos, de celulares a desktops.",
   },
   {
     icon: PenTool,
-    title: "UI/UX Principles",
-    description: "Applying design thinking to create intuitive, user-friendly, and aesthetically pleasing products.",
+    title: "Princípios de UI/UX",
+    description: "Aplicando o pensamento de design para criar produtos intuitivos, fáceis de usar e esteticamente agradáveis.",
   },
   {
     icon: Bot,
-    title: "AI Integration",
-    description: "Leveraging generative AI and large language models to build intelligent applications.",
+    title: "Integração com IA",
+    description: "Aproveitando IA generativa e modelos de linguagem grandes para construir aplicações inteligentes.",
   },
 ];
 
@@ -52,7 +52,7 @@ const cardVariants = {
 
 export function SkillsSection() {
   return (
-    <Section id="skills" title="My Expertise" subtitle="A versatile skill set to bring any digital vision to life.">
+    <Section id="skills" title="Minha Expertise" subtitle="Um conjunto de habilidades versátil para dar vida a qualquer visão digital.">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skills.map((skill, index) => (
           <motion.div

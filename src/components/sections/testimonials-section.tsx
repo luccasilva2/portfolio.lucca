@@ -19,27 +19,27 @@ const testimonials = [
     name: "Jane Doe",
     title: "CEO, Tech Innovators",
     quote:
-      "Lucca is a rare talent. His ability to blend technical expertise with creative vision resulted in a product that exceeded all our expectations. A true professional and a pleasure to work with.",
+      "Lucca é um talento raro. Sua capacidade de mesclar expertise técnica com visão criativa resultou em um produto que excedeu todas as nossas expectativas. Um verdadeiro profissional e um prazer de trabalhar.",
   },
   {
     id: "testimonial-2",
     name: "John Smith",
-    title: "Art Director, Creative Co.",
+    title: "Diretor de Arte, Creative Co.",
     quote:
-      "The level of detail and polish in Lucca's work is astounding. He took our concept and transformed it into a digital masterpiece. His passion for quality is evident in every pixel.",
+      "O nível de detalhe e polimento no trabalho de Lucca é impressionante. Ele pegou nosso conceito e o transformou em uma obra-prima digital. Sua paixão pela qualidade é evidente em cada pixel.",
   },
   {
     id: "testimonial-3",
     name: "Emily White",
-    title: "Founder, Startup Hub",
+    title: "Fundadora, Startup Hub",
     quote:
-      "Working with Lucca was a game-changer for our startup. He's not just a developer; he's a partner who genuinely invests in the success of the project. Highly recommended!",
+      "Trabalhar com Lucca foi um divisor de águas para nossa startup. Ele não é apenas um desenvolvedor; é um parceiro que investe genuinamente no sucesso do projeto. Altamente recomendado!",
   },
 ];
 
 export function TestimonialsSection() {
   return (
-    <Section id="testimonials" title="What Others Say" subtitle="Trust and satisfaction are the cornerstones of my collaborations.">
+    <Section id="testimonials" title="O Que Dizem" subtitle="Confiança e satisfação são as pedras angulares das minhas colaborações.">
       <Carousel
         opts={{
           align: "start",

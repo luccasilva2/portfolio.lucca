@@ -49,12 +49,12 @@ export function HeroSection() {
           className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground"
           variants={itemVariants}
         >
-          Full Stack Developer & Digital Creator
+          Desenvolvedor Full Stack & Criador Digital
         </motion.p>
         <motion.div className="mt-8" variants={itemVariants}>
           <Button asChild size="lg" className="group">
             <Link href="#projects">
-              View My Work
+              Ver Meu Trabalho
               <ArrowDown className="ml-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
             </Link>
           </Button>

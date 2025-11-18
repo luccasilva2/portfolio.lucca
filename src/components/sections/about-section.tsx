@@ -14,21 +14,21 @@ interface AboutSectionProps {
 const timeline = [
   {
     icon: Briefcase,
-    date: "2021 - Present",
-    title: "Full Stack Developer",
-    description: "Building and scaling modern web applications at a fast-growing tech startup.",
+    date: "2021 - Presente",
+    title: "Desenvolvedor Full Stack",
+    description: "Construindo e escalando aplicações web modernas em uma startup de tecnologia em rápido crescimento.",
   },
   {
     icon: Briefcase,
-    title: "Freelance Web Developer",
+    title: "Desenvolvedor Web Freelancer",
     date: "2019 - 2021",
-    description: "Collaborated with various clients to create bespoke websites and digital experiences.",
+    description: "Colaborei com vários clientes para criar sites e experiências digitais sob medida.",
   },
   {
     icon: GraduationCap,
-    title: "Computer Science Degree",
+    title: "Graduação em Ciência da Computação",
     date: "2015 - 2019",
-    description: "Graduated with honors, focusing on software engineering and human-computer interaction.",
+    description: "Graduado com honras, com foco em engenharia de software e interação humano-computador.",
   },
 ];
 
@@ -43,7 +43,7 @@ export function AboutSection({ personalizedContent }: AboutSectionProps) {
   );
 
   return (
-    <Section id="about" title="About Me">
+    <Section id="about" title="Sobre Mim">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
         <motion.div
           className="lg:col-span-1"
@@ -75,16 +75,13 @@ export function AboutSection({ personalizedContent }: AboutSectionProps) {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-3xl font-bold font-headline text-gradient">
-              A Glimpse Into My World
+              Um Vislumbre do Meu Mundo
             </h3>
             <p className="mt-4 text-lg text-muted-foreground">
               {personalizedContent}
             </p>
             <p className="mt-4 text-muted-foreground">
-              I'm a Full Stack Developer and Digital Creator passionate about crafting beautiful,
-              functional, and user-centric digital experiences. I thrive on bringing ideas to
-              life, from concept to deployment. My work is a blend of clean code, modern design,
-              and a relentless pursuit of perfection.
+              Sou um Desenvolvedor Full Stack e Criador Digital apaixonado por criar experiências digitais bonitas, funcionais e centradas no usuário. Eu prospero em dar vida a ideias, do conceito à implantação. Meu trabalho é uma mistura de código limpo, design moderno e uma busca incessante pela perfeição.
             </p>
           </motion.div>
 
