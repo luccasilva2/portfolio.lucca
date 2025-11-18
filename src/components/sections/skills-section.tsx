@@ -2,46 +2,46 @@
 
 import { motion } from "framer-motion";
 import {
-  Code,
-  Database,
-  Cloud,
+  Layers,
   Smartphone,
   PenTool,
-  Bot,
+  BrainCircuit,
+  DatabaseZap,
+  ServerCog,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Section } from "../ui/section";
 
 const skills = [
   {
-    icon: Code,
-    title: "Desenvolvimento Frontend",
-    description: "Criando interfaces de usuário bonitas e responsivas com React, Next.js e CSS moderno.",
-  },
-  {
-    icon: Database,
-    title: "Desenvolvimento Backend",
-    description: "Construindo aplicações do lado do servidor robustas e escaláveis usando Node.js, Python e bancos de dados SQL/NoSQL.",
-  },
-  {
-    icon: Cloud,
-    title: "DevOps & Cloud",
-    description: "Automatizando fluxos de trabalho e implantando aplicações em plataformas como Vercel, AWS e Google Cloud.",
+    icon: Layers,
+    title: "Desenvolvimento Full Stack",
+    description: "Criação de soluções completas, do front-end ao back-end, com foco em performance e escalabilidade.",
   },
   {
     icon: Smartphone,
-    title: "Design Responsivo",
-    description: "Garantindo experiências perfeitas em todos os dispositivos, de celulares a desktops.",
+    title: "Desenvolvimento de Aplicativos",
+    description: "Construção de aplicativos móveis nativos e híbridos para iOS e Android com interfaces modernas.",
+  },
+  {
+    icon: DatabaseZap,
+    title: "Integração com Banco de Dados",
+    description: "Modelagem e integração de bancos de dados SQL e NoSQL, garantindo a eficiência e segurança dos dados.",
+  },
+  {
+    icon: BrainCircuit,
+    title: "Criação de Redes Neurais para IAs",
+    description: "Desenvolvimento e treinamento de modelos de machine learning e redes neurais para aplicações inteligentes.",
   },
   {
     icon: PenTool,
-    title: "Princípios de UI/UX",
-    description: "Aplicando o pensamento de design para criar produtos intuitivos, fáceis de usar e esteticamente agradáveis.",
+    title: "UI/UX",
+    description: "Projetando interfaces intuitivas e experiências de usuário envolventes que resolvem problemas reais.",
   },
   {
-    icon: Bot,
-    title: "Integração com IA",
-    description: "Aproveitando IA generativa e modelos de linguagem grandes para construir aplicações inteligentes.",
+    icon: ServerCog,
+    title: "Desenvolvimento de Sistemas",
+    description: "Arquitetura e desenvolvimento de sistemas complexos e distribuídos para diversas finalidades.",
   },
 ];
 
