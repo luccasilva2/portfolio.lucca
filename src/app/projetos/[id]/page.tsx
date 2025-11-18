@@ -40,10 +40,14 @@ export default function ProjectPage() {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center">
+    <div 
+      className="fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center"
+      onClick={() => router.back()}
+    >
       <motion.div
         layoutId={`project-card-${projectId}`}
         className="relative w-full max-w-4xl max-h-[90vh] bg-card rounded-lg overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="p-8">
            <Button 
