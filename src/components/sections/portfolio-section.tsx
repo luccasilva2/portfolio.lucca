@@ -59,21 +59,23 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, type: 'spring' }}
       viewport={{ once: true, amount: 0.3 }}
-      className="flex flex-col"
+      className="w-full"
     >
-      <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/10">
-        <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
-          {image && (
-            <Image
-              src={image.imageUrl}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              data-ai-hint={image.imageHint}
-            />
-          )}
-        </div>
-        <CardContent className="p-6 flex flex-col flex-grow">
+      <Card className="group h-full overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/10">
+        <Link href={`/projetos/${project.id}`} scroll={false} className="block">
+          <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
+            {image && (
+              <Image
+                src={image.imageUrl}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                data-ai-hint={image.imageHint}
+              />
+            )}
+          </div>
+        </Link>
+        <CardContent className="p-6">
           <h3 className="text-xl font-bold font-headline">{project.title}</h3>
           <p className="text-muted-foreground mt-2 text-sm flex-grow">{project.description}</p>
           <div className="flex flex-wrap gap-2 mt-4">
