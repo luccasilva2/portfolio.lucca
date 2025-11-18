@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, GraduationCap } from "lucide-react";
 import { Section } from "../ui/section";
 
