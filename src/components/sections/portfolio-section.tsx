@@ -120,15 +120,6 @@ export const allProjects = [
     liveUrl: "#",
     githubUrl: "#",
   },
-  {
-    id: "project-14",
-    title: "portfolio.lucca",
-    description: "Meu portfólio pessoal e profissional, mostrando meus projetos e habilidades.",
-    longDescription: "Meu portfólio pessoal e profissional, desenvolvido para mostrar meus projetos, habilidades e jornada como desenvolvedor. Um espaço para compartilhar meu trabalho e paixão por tecnologia.",
-    tags: ["TypeScript", "Next.js", "Portfolio"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
 ];
 
 const ProjectCard = ({ project }: { project: (typeof allProjects)[0] }) => {
@@ -209,23 +200,23 @@ const ProjectCard = ({ project }: { project: (typeof allProjects)[0] }) => {
                     <Badge key={tag} variant="secondary">{tag}</Badge>
                   ))}
                 </div>
-                <div className="flex items-center gap-4 mt-6">
-                   <Button asChild size="sm" variant="outline">
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                          <Github className="mr-2 h-4 w-4"/>
-                          Código
-                      </a>
-                   </Button>
-                   <Button asChild size="sm" >
-                     <Link href={`/projetos/${project.id}`} scroll={false}>
-                        <Eye className="mr-2 h-4 w-4"/>
-                        Demo
-                      </Link>
-                   </Button>
-                </div>
               </CardContent>
             </div>
           </Link>
+          <div className="p-6 pt-0 flex items-center gap-4">
+             <Button asChild size="sm" variant="outline">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                    <Github className="mr-2 h-4 w-4"/>
+                    Código
+                </a>
+             </Button>
+             <Button asChild size="sm" >
+               <Link href={`/projetos/${project.id}`} scroll={false}>
+                  <Eye className="mr-2 h-4 w-4"/>
+                  Demo
+                </Link>
+             </Button>
+          </div>
         </Card>
       </motion.div>
     </motion.div>
@@ -233,7 +224,7 @@ const ProjectCard = ({ project }: { project: (typeof allProjects)[0] }) => {
 };
 
 export function PortfolioSection() {
-  const projects = allProjects.filter(p => p.id !== 'project-luccasilva2' && p.id !== 'project-hospital');
+  const projects = allProjects;
   return (
     <Section id="projects" title="Trabalhos Selecionados" subtitle="Um vislumbre da minha paixão pela criação e resolução de problemas.">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" style={{perspective: '1000px'}}>
