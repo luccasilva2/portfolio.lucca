@@ -12,7 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 
 export const allProjects = [
-  {
+    {
     id: "project-1",
     title: "appQuanta",
     description: "Criação automatizada de aplicativos a partir de ideias, sem código e sem complicações.",
@@ -131,9 +131,7 @@ export const allProjects = [
   },
 ];
 
-const projects = allProjects.filter(p => p.id !== 'project-luccasilva2' && p.id !== 'project-hospital');
-
-const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
+const ProjectCard = ({ project }: { project: (typeof allProjects)[0] }) => {
   const image = PlaceHolderImages.find((img) => img.id === project.id);
   const cardRef = React.useRef<HTMLDivElement>(null);
 
@@ -218,9 +216,11 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
                           Código
                       </a>
                    </Button>
-                   <Button size="sm" onClick={(e) => e.stopPropagation()}>
-                      <Eye className="mr-2 h-4 w-4"/>
-                      Demo
+                   <Button asChild size="sm" >
+                     <Link href={`/projetos/${project.id}`} scroll={false}>
+                        <Eye className="mr-2 h-4 w-4"/>
+                        Demo
+                      </Link>
                    </Button>
                 </div>
               </CardContent>
@@ -233,6 +233,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
 };
 
 export function PortfolioSection() {
+  const projects = allProjects.filter(p => p.id !== 'project-luccasilva2' && p.id !== 'project-hospital');
   return (
     <Section id="projects" title="Trabalhos Selecionados" subtitle="Um vislumbre da minha paixão pela criação e resolução de problemas.">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" style={{perspective: '1000px'}}>

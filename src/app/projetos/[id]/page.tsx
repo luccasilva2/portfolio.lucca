@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { projects } from "@/components/sections/portfolio-section";
+import { allProjects } from "@/components/sections/portfolio-section";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -14,7 +14,7 @@ export default function ProjectPage() {
   const router = useRouter();
   const params = useParams();
   const projectId = params.id as string;
-  const project = projects.find((p) => p.id === projectId);
+  const project = allProjects.find((p) => p.id === projectId);
   const image = PlaceHolderImages.find((img) => img.id === projectId);
 
   useEffect(() => {
