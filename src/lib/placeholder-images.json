@@ -77,6 +77,18 @@
       "description": "Preview of Estudaai project",
       "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdHVkeSUyMGFwcHxlbnwwfHx8fDE3MjE4MzUxODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "study app"
+    },
+    {
+      "id": "project-13",
+      "description": "Preview of Ativo-TCC project",
+      "imageUrl": "https://images.unsplash.com/photo-1554224155-1696413565d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb25hbCUyMGZpbmFuY2V8ZW58MHx8fHwxNzIxODMzMTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "personal finance"
+    },
+    {
+      "id": "project-14",
+      "description": "Just working on my time.",
+      "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2V8ZW58MHx8fHwxNzIxODMzMTMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "developer workspace"
     }
   ]
 }
