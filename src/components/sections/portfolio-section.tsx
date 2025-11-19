@@ -208,12 +208,12 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
                       </a>
                    </Button>
                    <Button asChild size="sm">
-                      <div onClick={(e) => e.preventDefault()}>
-                        <Link href={`/projetos/${project.id}`} scroll={false}>
-                            <Eye className="mr-2 h-4 w-4"/>
-                            Demo
-                        </Link>
-                      </div>
+                      <Link href={`/projetos/${project.id}`} scroll={false} onClick={(e) => {
+                          e.stopPropagation();
+                      }}>
+                          <Eye className="mr-2 h-4 w-4"/>
+                          Demo
+                      </Link>
                    </Button>
                 </div>
               </CardContent>
@@ -228,7 +228,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
 export function PortfolioSection() {
   return (
     <Section id="projects" title="Trabalhos Selecionados" subtitle="Um vislumbre da minha paixão pela criação e resolução de problemas.">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12" style={{perspective: '1000px'}}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" style={{perspective: '1000px'}}>
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
@@ -236,5 +236,3 @@ export function PortfolioSection() {
     </Section>
   );
 }
-
-    
