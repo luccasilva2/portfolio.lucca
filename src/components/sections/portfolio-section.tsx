@@ -66,7 +66,7 @@ export const projects = [
     liveUrl: "#",
     githubUrl: "#",
   },
-   {
+  {
     id: "project-7",
     title: "clinica-web",
     description: "Sistema web para gerenciamento de clínicas. Feito com JavaScript.",
@@ -117,6 +117,24 @@ export const projects = [
     description: "App para organização de rotina de estudos com funcionalidades inteligentes.",
     longDescription: "📚 Estuda.AI é um app em desenvolvimento focado em organizar a rotina de estudos de forma simples, intuitiva e eficiente. Com funcionalidades inteligentes e um visual moderno, ele ajuda estudantes a otimizar seu tempo e aprendizado.",
     tags: ["C++", "AI", "Study", "Desktop"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "project-13",
+    title: "Ativo-TCC",
+    description: "Aplicativo de finanças pessoais para controle de receitas, gastos e saldo.",
+    longDescription: "💸💸 Ativo: controle suas finanças pessoais com facilidade. Acompanhe receitas, gastos e saldo com clareza e mantenha seu orçamento sempre em dia.",
+    tags: ["TypeScript", "React Native", "Finance"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+    {
+    id: "project-14",
+    title: "luccasilva2",
+    description: "Apenas trabalhando no meu tempo.",
+    longDescription: "Apenas trabalhando no meu tempo.",
+    tags: ["Profile", "README"],
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -208,12 +226,12 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
                       </a>
                    </Button>
                    <Button asChild size="sm">
-                      <Link href={`/projetos/${project.id}`} scroll={false} onClick={(e) => {
-                          e.stopPropagation();
-                      }}>
-                          <Eye className="mr-2 h-4 w-4"/>
-                          Demo
-                      </Link>
+                      <div onClick={(e) => e.stopPropagation()}>
+                         <Link href={`/projetos/${project.id}`} scroll={false}>
+                            <Eye className="mr-2 h-4 w-4"/>
+                            Demo
+                         </Link>
+                      </div>
                    </Button>
                 </div>
               </CardContent>
