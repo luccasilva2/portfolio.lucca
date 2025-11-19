@@ -85,15 +85,6 @@ export const projects = [
     githubUrl: "#",
   },
   {
-    id: "project-9",
-    title: "Hospital",
-    description: "Protótipo de sistema de gerenciamento hospitalar.",
-    longDescription: "Protótipo inicial de um sistema de gerenciamento hospitalar, criado com HTML e CSS para definir a estrutura e o layout das principais funcionalidades.",
-    tags: ["HTML", "CSS", "Frontend"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
     id: "project-10",
     title: "Minha_IA",
     description: "Estudos e implementações de conceitos de Inteligência Artificial em Python.",
@@ -126,15 +117,6 @@ export const projects = [
     description: "Aplicativo de finanças pessoais para controle de receitas, gastos e saldo.",
     longDescription: "💸💸 Ativo: controle suas finanças pessoais com facilidade. Acompanhe receitas, gastos e saldo com clareza e mantenha seu orçamento sempre em dia.",
     tags: ["TypeScript", "React Native", "Finance"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-    {
-    id: "project-14",
-    title: "luccasilva2",
-    description: "Apenas trabalhando no meu tempo.",
-    longDescription: "Apenas trabalhando no meu tempo.",
-    tags: ["Profile", "README"],
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -226,12 +208,10 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
                       </a>
                    </Button>
                    <Button asChild size="sm">
-                      <div onClick={(e) => e.stopPropagation()}>
-                         <Link href={`/projetos/${project.id}`} scroll={false}>
-                            <Eye className="mr-2 h-4 w-4"/>
-                            Demo
-                         </Link>
-                      </div>
+                      <Link href={`/projetos/${project.id}`} scroll={false} onClick={(e) => e.stopPropagation()}>
+                          <Eye className="mr-2 h-4 w-4"/>
+                          Demo
+                      </Link>
                    </Button>
                 </div>
               </CardContent>
