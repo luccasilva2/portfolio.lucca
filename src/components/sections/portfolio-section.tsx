@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 
-export const projects = [
+export const allProjects = [
   {
     id: "project-1",
     title: "appQuanta",
@@ -120,7 +120,18 @@ export const projects = [
     liveUrl: "#",
     githubUrl: "#",
   },
+  {
+    id: "project-14",
+    title: "portfolio.lucca",
+    description: "Meu portfólio pessoal e profissional, mostrando meus projetos e habilidades.",
+    longDescription: "Meu portfólio pessoal e profissional, desenvolvido para mostrar meus projetos, habilidades e jornada como desenvolvedor. Um espaço para compartilhar meu trabalho e paixão por tecnologia.",
+    tags: ["TypeScript", "Next.js", "Portfolio"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
 ];
+
+const projects = allProjects.filter(p => p.id !== 'project-luccasilva2' && p.id !== 'project-hospital');
 
 const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
   const image = PlaceHolderImages.find((img) => img.id === project.id);
@@ -207,11 +218,9 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
                           Código
                       </a>
                    </Button>
-                   <Button asChild size="sm">
-                      <Link href={`/projetos/${project.id}`} scroll={false} onClick={(e) => e.stopPropagation()}>
-                          <Eye className="mr-2 h-4 w-4"/>
-                          Demo
-                      </Link>
+                   <Button size="sm" onClick={(e) => e.stopPropagation()}>
+                      <Eye className="mr-2 h-4 w-4"/>
+                      Demo
                    </Button>
                 </div>
               </CardContent>
