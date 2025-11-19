@@ -48,6 +48,78 @@ export const projects = [
     liveUrl: "#",
     githubUrl: "#",
   },
+  {
+    id: "project-5",
+    title: "appQuanta-server",
+    description: "Servidor inteligente do Quanta: geração automática, APIs e gerenciamento de builds.",
+    longDescription: "Servidor inteligente para a plataforma appQuanta. Responsável pela geração automática de código, gerenciamento de APIs e controle de builds dos aplicativos gerados. Construído em Python para garantir robustez e escalabilidade.",
+    tags: ["Python", "API", "Server", "AI"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "project-6",
+    title: "Portfolio",
+    description: "Portfólio de Lucca — desenvolvedor criativo e apaixonado por tecnologia.",
+    longDescription: "Uma versão anterior do meu portfólio, desenvolvida com HTML, CSS e JavaScript puros para demonstrar minhas habilidades fundamentais de desenvolvimento web. Um projeto que mostra minhas raízes como desenvolvedor.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+   {
+    id: "project-7",
+    title: "clinica-web",
+    description: "Sistema web para gerenciamento de clínicas. Feito com JavaScript.",
+    longDescription: "Um sistema completo para gerenciamento de clínicas, permitindo o agendamento de consultas, cadastro de pacientes e prontuários eletrônicos. Desenvolvido com JavaScript, HTML e CSS.",
+    tags: ["JavaScript", "HTML", "CSS"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "project-8",
+    title: "Sites",
+    description: "Esqueleto inicial para prototipagem de sistemas web com 30 telas básicas em HTML e CSS.",
+    longDescription: "Projeto de sistema web com 30 telas básicas em HTML e CSS simples, servindo como um esqueleto inicial robusto para a prototipagem rápida de novas aplicações e websites.",
+    tags: ["HTML", "CSS", "Prototyping"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "project-9",
+    title: "Hospital",
+    description: "Protótipo de sistema de gerenciamento hospitalar.",
+    longDescription: "Protótipo inicial de um sistema de gerenciamento hospitalar, criado com HTML e CSS para definir a estrutura e o layout das principais funcionalidades.",
+    tags: ["HTML", "CSS", "Frontend"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "project-10",
+    title: "Minha_IA",
+    description: "Estudos e implementações de conceitos de Inteligência Artificial em Python.",
+    longDescription: "Repositório dedicado aos meus estudos e implementações de algoritmos e conceitos de Inteligência Artificial utilizando Python. Inclui redes neurais, processamento de linguagem natural e mais.",
+    tags: ["Python", "AI", "Machine Learning"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "project-11",
+    title: "forms",
+    description: "App de formulários inspirado no Google Forms, desenvolvido em Flutter.",
+    longDescription: "Este projeto é um app de formulários inspirado no Google Forms, desenvolvido em Flutter e preparado para integração com Firebase. Ele permite criar, editar, visualizar e excluir formulários de maneira intuitiva.",
+    tags: ["Flutter", "Dart", "Mobile", "Firebase"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "project-12",
+    title: "Estudaai",
+    description: "App para organização de rotina de estudos com funcionalidades inteligentes.",
+    longDescription: "📚 Estuda.AI é um app em desenvolvimento focado em organizar a rotina de estudos de forma simples, intuitiva e eficiente. Com funcionalidades inteligentes e um visual moderno, ele ajuda estudantes a otimizar seu tempo e aprendizado.",
+    tags: ["C++", "AI", "Study", "Desktop"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
 ];
 
 const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
@@ -164,3 +236,5 @@ export function PortfolioSection() {
     </Section>
   );
 }
+
+    
