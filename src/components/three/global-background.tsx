@@ -51,8 +51,8 @@ export function GlobalBackground() {
     const colors = new Float32Array(particlesCount * 3);
     const sizes = new Float32Array(particlesCount);
     
-    const primaryColor = new THREE.Color('hsl(285, 87%, 53%)');
-    const accentColor = new THREE.Color('hsl(283, 91%, 43%)');
+    const primaryColor = new THREE.Color('hsl(22, 96%, 60%)');
+    const accentColor = new THREE.Color('hsl(25, 81%, 50%)');
 
     for (let i = 0; i < particlesCount; i++) {
       const i3 = i * 3;
