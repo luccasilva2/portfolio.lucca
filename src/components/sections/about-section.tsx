@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import luccaImage from "@/lib/lucca.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, GraduationCap } from "lucide-react";
 import { Section } from "../ui/section";
@@ -20,15 +20,15 @@ const timeline = [
   },
   {
     icon: Briefcase,
-    title: "Desenvolvedor Web Freelancer",
-    date: "2019 - 2021",
-    description: "Colaborei com vários clientes para criar sites e experiências digitais sob medida.",
+    title: "Entra21 React Native",
+    date: "2022 - 2023",
+    description: "Participação no programa Entra21 na linguagem de React Native.",
   },
   {
     icon: GraduationCap,
-    title: "Graduação em Ciência da Computação",
-    date: "2015 - 2019",
-    description: "Graduado com honras, com foco em engenharia de software e interação humano-computador.",
+    title: "Entra21 EAD Java",
+    date: "Março - Setembro",
+    description: "Novamente tendo a participação no programa Entra21 na linguagem de Java no modelo EAD.",
   },
 ];
 
@@ -38,10 +38,6 @@ const cardVariants = {
 };
 
 export function AboutSection({ personalizedContent }: AboutSectionProps) {
-  const profileImage = PlaceHolderImages.find(
-    (img) => img.id === "lucca-profile"
-  );
-
   return (
     <Section id="about" title="Sobre Mim">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
@@ -54,15 +50,12 @@ export function AboutSection({ personalizedContent }: AboutSectionProps) {
         >
           <Card className="overflow-hidden shadow-2xl shadow-primary/10">
             <div className="aspect-square relative">
-              {profileImage && (
-                <Image
-                  src={profileImage.imageUrl}
-                  alt={profileImage.description}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  data-ai-hint={profileImage.imageHint}
-                />
-              )}
+              <Image
+                src={luccaImage}
+                alt="Lucca Silva"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
           </Card>
         </motion.div>
