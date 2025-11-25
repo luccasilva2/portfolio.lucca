@@ -3,50 +3,80 @@
     {
       "id": "lucca-profile",
       "description": "Profile picture of Lucca Silva Oliveira",
-      "imageUrl": "https://storage.googleapis.com/gweb-aip-dev.appspot.com/workplace-user-work/v-1718826723223/u-1717694354228/s-1718830154378/sc-1718830180424/ss-1718830180424/c-1718830206126/p-1718830219661/i-1718830491024_lucca_profile.jpg",
+      "imageUrl": "https://i.postimg.cc/G2RJFqqT/lucca.jpg",
       "imageHint": "man smiling"
     },
     {
       "id": "project-1",
-      "description": "Preview of project one",
-      "imageUrl": "https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhYnN0cmFjdCUyMGNvZGV8ZW58MHx8fHwxNzYzMzA2MTAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Preview of appQuanta project",
+      "imageUrl": "https://images.unsplash.com/photo-1610466896927-699424f3c86d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGNvZGV8ZW58MHx8fHwxNzYzNTI1MzQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "abstract code"
     },
     {
       "id": "project-2",
-      "description": "Preview of project two",
-      "imageUrl": "https://images.unsplash.com/photo-1658953229625-aad99d7603b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnV0dXJpc3RpYyUyMGludGVyZmFjZXxlbnwwfHx8fDE3NjMzNTQ1NDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "futuristic interface"
+      "description": "Preview of Site_CH project",
+      "imageUrl": "https://images.unsplash.com/photo-1615328847249-1e4c09292379?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtaWxpdGFyeSUyMGhpc3Rvcnl8ZW58MHx8fHwxNzYzNTUxMjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "military history"
     },
     {
       "id": "project-3",
-      "description": "Preview of project three",
-      "imageUrl": "https://images.unsplash.com/photo-1761599821310-da0d6356b4f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxnbG93aW5nJTIwY2lyY3VpdHxlbnwwfHx8fDE3NjMyNzY5NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "glowing circuit"
+      "description": "Preview of Griffi project",
+      "imageUrl": "https://images.unsplash.com/photo-1668678437217-ad4bcac34f32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNlJTIwbWFuYWdlbWVudHxlbnwwfHx8fDE3NjM1NTEyNTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "finance management"
     },
     {
       "id": "project-4",
-      "description": "Preview of project four",
-      "imageUrl": "https://images.unsplash.com/photo-1634320714682-ae8b9c9cee60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkaWdpdGFsJTIwYXJ0fGVufDB8fHx8MTc2MzI4NjA3OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "digital art"
+      "description": "Preview of Empresa project",
+      "imageUrl": "https://images.unsplash.com/photo-1729551610680-c6ea05b08937?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlbXBsb3llZSUyMG1hbmFnZW1lbnR8ZW58MHx8fHwxNzYzNTUxMjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "employee management"
     },
     {
-      "id": "testimonial-1",
-      "description": "Avatar for testimonial 1",
-      "imageUrl": "https://images.unsplash.com/photo-1607529378676-a20456ee2f6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjBzbWlsaW5nfGVufDB8fHx8MTc2MzMxODY3NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "person smiling"
+      "id": "project-5",
+      "description": "Preview of appQuanta-server project",
+      "imageUrl": "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxweXRob24lMjBzZXJ2ZXJ8ZW58MHx8fHwxNzYzNTUxMjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "python server"
     },
     {
-      "id": "testimonial-2",
-      "description": "Avatar for testimonial 2",
-      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjMzNDAzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional headshot"
+      "id": "project-6",
+      "description": "Preview of Portfolio project",
+      "imageUrl": "https://images.unsplash.com/photo-1505238680356-667803448bb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkZXZlbG9wZXIlMjBwb3J0Zm9saW98ZW58MHx8fHwxNzYzNTUxMjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "developer portfolio"
     },
     {
-      "id": "testimonial-3",
-      "description": "Avatar for testimonial 3",
-      "imageUrl": "https://images.unsplash.com/photo-1539135950877-26943cd58152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjcmVhdGl2ZSUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MzM3NjcyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "creative portrait"
+      "id": "project-7",
+      "description": "Preview of clinica-web project",
+      "imageUrl": "https://images.unsplash.com/photo-1697490252019-dc47e3c8a72e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWVkaWNhbCUyMHdlYnNpdGV8ZW58MHx8fHwxNzYzNTUxMjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "medical website"
+    },
+    {
+      "id": "project-8",
+      "description": "Preview of Sites project",
+      "imageUrl": "https://images.unsplash.com/photo-1591381287254-b3349c60bf9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3ZWIlMjBwcm90b3R5cGV8ZW58MHx8fHwxNzYzNTUxMjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web prototype"
+    },
+    {
+      "id": "project-10",
+      "description": "Preview of Minha_IA project",
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2MzUyMTQ2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "project-11",
+      "description": "Preview of forms project",
+      "imageUrl": "https://images.unsplash.com/photo-1633502401680-e2955cc6aca6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmb3JtJTIwYXBwfGVufDB8fHx8MTc2MzU1MTI1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "form app"
+    },
+    {
+      "id": "project-12",
+      "description": "Preview of Estudaai project",
+      "imageUrl": "https://images.unsplash.com/photo-1762330918617-e135c98d40fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdHVkeSUyMGFwcHxlbnwwfHx8fDE3NjM1NTEyNTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "study app"
+    },
+    {
+      "id": "project-13",
+      "description": "Preview of Ativo-TCC project",
+      "imageUrl": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZXJzb25hbCUyMGZpbmFuY2V8ZW58MHx8fHwxNzYzNTUxMjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "personal finance"
     }
   ]
 }
