@@ -1,13 +1,13 @@
 import { Logo } from "./logo";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export function Footer() {
   const socialLinks = [
-    { name: "GitHub", icon: Github, url: "#" },
-    { name: "Twitter", icon: Twitter, url: "#" },
-    { name: "LinkedIn", icon: Linkedin, url: "#" },
+    { name: "GitHub", icon: Github, url: "https://github.com/luccasilva2" },
+    { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/luccaa_so?igsh=MWR3M2hzNzRrZ29pYw%3D%3D" },
+    { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/lucca-silva-oliveira/" },
   ];
 
   return (
