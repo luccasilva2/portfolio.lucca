@@ -5,8 +5,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { gsap } from "gsap";
+import { useLanguage } from "@/components/language-provider";
 
 export function HeroSection() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
@@ -58,12 +60,12 @@ export function HeroSection() {
           ref={paragraphRef}
           className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground opacity-0"
         >
-          Desenvolvedor Full Stack & Criador Digital
+          {t.hero.subtitle}
         </p>
         <div ref={buttonRef} className="mt-8 opacity-0">
           <Button asChild size="lg" className="group">
             <Link href="#projects">
-              Ver Meu Trabalho
+              {t.hero.cta}
               <ArrowDown className="ml-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
             </Link>
           </Button>

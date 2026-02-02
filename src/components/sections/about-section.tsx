@@ -6,6 +6,7 @@ import luccaImage from "@/lib/lucca.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, GraduationCap } from "lucide-react";
 import { Section } from "../ui/section";
+import { useLanguage } from "@/components/language-provider";
 
 interface AboutSectionProps {
   personalizedContent: string;
@@ -38,8 +39,16 @@ const cardVariants = {
 };
 
 export function AboutSection({ personalizedContent }: AboutSectionProps) {
+  const { t } = useLanguage();
+  const localizedTimeline = timeline.map((item, index) => ({
+    ...item,
+    date: t.about.timeline[index]?.date ?? item.date,
+    title: t.about.timeline[index]?.title ?? item.title,
+    description: t.about.timeline[index]?.description ?? item.description,
+  }));
+
   return (
-    <Section id="about" title="Sobre Mim">
+    <Section id="about" title={t.about.sectionTitle}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
         <motion.div
           className="lg:col-span-1"
@@ -68,18 +77,18 @@ export function AboutSection({ personalizedContent }: AboutSectionProps) {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-3xl font-bold font-headline text-gradient">
-              Um Vislumbre do Meu Mundo
+              {t.about.heading}
             </h3>
             <p className="mt-4 text-lg text-muted-foreground">
               {personalizedContent}
             </p>
             <p className="mt-4 text-muted-foreground">
-              Sou um Desenvolvedor Full Stack e Criador Digital apaixonado por criar experiências digitais bonitas, funcionais e centradas no usuário. Eu prospero em dar vida a ideias, do conceito à implantação. Meu trabalho é uma mistura de código limpo, design moderno e uma busca incessante pela perfeição.
+              {t.about.paragraph}
             </p>
           </motion.div>
 
           <div className="relative pl-6 border-l-2 border-primary/50">
-            {timeline.map((item, index) => (
+            {localizedTimeline.map((item, index) => (
               <motion.div
                 key={index}
                 className="mb-8 last:mb-0"

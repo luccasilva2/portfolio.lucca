@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { allProjects } from "@/components/sections/portfolio-section";
+import { projectsBase } from "@/lib/projects";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -9,12 +9,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, X } from "lucide-react";
 import { useEffect } from "react";
+import { useLanguage } from "@/components/language-provider";
 
 export default function ProjectPage() {
   const router = useRouter();
+  const { t } = useLanguage();
   const params = useParams();
   const projectId = params.id as string;
-  const project = allProjects.find((p) => p.id === projectId);
+  const baseProject = projectsBase.find((p) => p.id === projectId);
+  const projectCopy = t.projects[projectId as keyof typeof t.projects];
+  const project = baseProject && projectCopy ? { ...baseProject, ...projectCopy } : null;
   const image = PlaceHolderImages.find((img) => img.id === projectId);
 
   useEffect(() => {
@@ -34,7 +38,7 @@ export default function ProjectPage() {
   if (!project) {
     return (
       <div className="flex items-center justify-center h-screen text-white">
-        Projeto não encontrado.
+        {t.project.notFound}
       </div>
     );
   }
@@ -57,7 +61,7 @@ export default function ProjectPage() {
             onClick={() => router.back()}
           >
             <X className="h-6 w-6"/>
-            <span className="sr-only">Fechar</span>
+            <span className="sr-only">{t.project.close}</span>
           </Button>
 
           <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8">
@@ -88,13 +92,13 @@ export default function ProjectPage() {
              <Button asChild variant="outline">
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4"/>
-                    Ver Código Fonte
+                    {t.project.viewSource}
                 </a>
              </Button>
              <Button asChild>
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4"/>
-                    Visitar Projeto
+                    {t.project.visit}
                 </a>
              </Button>
           </div>

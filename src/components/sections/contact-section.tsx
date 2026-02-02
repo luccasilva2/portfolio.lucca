@@ -18,15 +18,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Section } from "../ui/section";
 import { Send } from "lucide-react";
-
-const formSchema = z.object({
-  name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres." }),
-  email: z.string().email({ message: "Por favor, insira um email válido." }),
-  message: z.string().min(10, { message: "A mensagem deve ter pelo menos 10 caracteres." }),
-});
+import { useLanguage } from "@/components/language-provider";
 
 export function ContactSection() {
+  const { t } = useLanguage();
   const { toast } = useToast();
+
+  const formSchema = z.object({
+    name: z.string().min(2, { message: t.contact.validation.nameMin }),
+    email: z.string().email({ message: t.contact.validation.email }),
+    message: z.string().min(10, { message: t.contact.validation.messageMin }),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,14 +42,14 @@ export function ContactSection() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Mensagem Enviada!",
-      description: "Obrigado por entrar em contato. Retornarei em breve.",
+      title: t.contact.toast.title,
+      description: t.contact.toast.description,
     });
     form.reset();
   }
 
   return (
-    <Section id="contact" title="Vamos nos Conectar" subtitle="Tem um projeto em mente ou só quer dizer olá? Me mande uma mensagem.">
+    <Section id="contact" title={t.contact.sectionTitle} subtitle={t.contact.sectionSubtitle}>
       <motion.div
         className="max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 50 }}
@@ -63,9 +65,9 @@ export function ContactSection() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nome</FormLabel>
+                    <FormLabel>{t.contact.form.nameLabel}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Seu Nome" {...field} className="bg-card"/>
+                      <Input placeholder={t.contact.form.namePlaceholder} {...field} className="bg-card"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -76,9 +78,9 @@ export function ContactSection() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>{t.contact.form.emailLabel}</FormLabel>
                     <FormControl>
-                      <Input placeholder="seu.email@example.com" {...field} className="bg-card"/>
+                      <Input placeholder={t.contact.form.emailPlaceholder} {...field} className="bg-card"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -88,11 +90,11 @@ export function ContactSection() {
             <FormField
               control={form.control}
               name="message"
-              render={({ field }) => (
+                render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Mensagem</FormLabel>
+                  <FormLabel>{t.contact.form.messageLabel}</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Me fale sobre seu projeto ou ideia..." {...field} rows={6} className="bg-card"/>
+                    <Textarea placeholder={t.contact.form.messagePlaceholder} {...field} rows={6} className="bg-card"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -101,7 +103,7 @@ export function ContactSection() {
             <div className="text-center">
               <Button type="submit" size="lg">
                 <Send className="mr-2 h-4 w-4" />
-                Enviar Mensagem
+                {t.contact.form.submit}
               </Button>
             </div>
           </form>

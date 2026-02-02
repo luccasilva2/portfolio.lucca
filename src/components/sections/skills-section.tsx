@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Section } from "../ui/section";
+import { useLanguage } from "@/components/language-provider";
 
 const skills = [
   {
@@ -51,10 +52,17 @@ const cardVariants = {
 };
 
 export function SkillsSection() {
+  const { t } = useLanguage();
+  const localizedSkills = skills.map((skill, index) => ({
+    ...skill,
+    title: t.skills.items[index]?.title ?? skill.title,
+    description: t.skills.items[index]?.description ?? skill.description,
+  }));
+
   return (
-    <Section id="skills" title="Minha Expertise" subtitle="Um conjunto de habilidades versátil para dar vida a qualquer visão digital.">
+    <Section id="skills" title={t.skills.sectionTitle} subtitle={t.skills.sectionSubtitle}>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {skills.map((skill, index) => (
+        {localizedSkills.map((skill, index) => (
           <motion.div
             key={skill.title}
             custom={index}

@@ -1,9 +1,13 @@
+"use client";
+
 import { Logo } from "./logo";
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useLanguage } from "@/components/language-provider";
 
 export function Footer() {
+  const { t } = useLanguage();
   const socialLinks = [
     { name: "GitHub", icon: Github, url: "https://github.com/luccasilva2" },
     { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/luccaa_so?igsh=MWR3M2hzNzRrZ29pYw%3D%3D" },
@@ -17,7 +21,7 @@ export function Footer() {
           <div className="text-center md:text-left">
             <Logo />
             <p className="mt-2 text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} Lucca Silva Oliveira. All rights reserved.
+              &copy; {new Date().getFullYear()} Lucca Silva Oliveira. {t.footer.rights}
             </p>
           </div>
           <div className="flex items-center space-x-2">
