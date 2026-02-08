@@ -18,6 +18,7 @@ export function Header() {
   const navItems = [
     { name: t.nav.about, href: "#about" },
     { name: t.nav.skills, href: "#skills" },
+    { name: t.nav.resume, href: "#resume" },
     { name: t.nav.projects, href: "#projects" },
   ];
 

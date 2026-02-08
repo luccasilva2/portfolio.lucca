@@ -22,6 +22,7 @@ export const translations = {
     nav: {
       about: "Sobre",
       skills: "Skills",
+      resume: "Currículo",
       projects: "Projetos",
       contact: "Contato",
       openMenu: "Abrir menu",
@@ -98,6 +99,14 @@ export const translations = {
       sectionSubtitle: "Um vislumbre da minha paixão pela criação e resolução de problemas.",
       code: "Código",
       demo: "Demo",
+    },
+    resume: {
+      sectionTitle: "Meu Currículo",
+      sectionSubtitle: "Baixe ou visualize o PDF atualizado com minha experiência.",
+      heading: "Disponível para download",
+      description: "O arquivo do currículo está em PDF e pode ser baixado ou aberto em uma nova guia.",
+      download: "Baixar PDF",
+      view: "Ver Online",
     },
     contact: {
       sectionTitle: "Vamos nos Conectar",
@@ -198,6 +207,7 @@ export const translations = {
     nav: {
       about: "About",
       skills: "Skills",
+      resume: "Resume",
       projects: "Projects",
       contact: "Contact",
       openMenu: "Open menu",
@@ -274,6 +284,14 @@ export const translations = {
       sectionSubtitle: "A glimpse of my passion for building and solving problems.",
       code: "Code",
       demo: "Demo",
+    },
+    resume: {
+      sectionTitle: "My Resume",
+      sectionSubtitle: "Download or view the updated PDF with my experience.",
+      heading: "Ready to download",
+      description: "The resume is a PDF file you can download or open in a new tab.",
+      download: "Download PDF",
+      view: "View Online",
     },
     contact: {
       sectionTitle: "Let’s Connect",
@@ -374,6 +392,7 @@ export const translations = {
     nav: {
       about: "Sobre mí",
       skills: "Habilidades",
+      resume: "Currículum",
       projects: "Proyectos",
       contact: "Contacto",
       openMenu: "Abrir menú",
@@ -450,6 +469,14 @@ export const translations = {
       sectionSubtitle: "Una muestra de mi pasión por crear y resolver problemas.",
       code: "Código",
       demo: "Demo",
+    },
+    resume: {
+      sectionTitle: "Mi Currículum",
+      sectionSubtitle: "Descarga o visualiza el PDF actualizado con mi experiencia.",
+      heading: "Listo para descargar",
+      description: "El currículum está en PDF y puedes descargarlo o abrirlo en una nueva pestaña.",
+      download: "Descargar PDF",
+      view: "Ver Online",
     },
     contact: {
       sectionTitle: "Conectemos",
@@ -550,6 +577,7 @@ export const translations = {
     nav: {
       about: "À propos",
       skills: "Compétences",
+      resume: "CV",
       projects: "Projets",
       contact: "Contact",
       openMenu: "Ouvrir le menu",
@@ -626,6 +654,14 @@ export const translations = {
       sectionSubtitle: "Un aperçu de ma passion pour la création et la résolution de problèmes.",
       code: "Code",
       demo: "Démo",
+    },
+    resume: {
+      sectionTitle: "Mon CV",
+      sectionSubtitle: "Téléchargez ou consultez le PDF à jour avec mon expérience.",
+      heading: "Prêt à télécharger",
+      description: "Le CV est en PDF, vous pouvez le télécharger ou l’ouvrir dans un nouvel onglet.",
+      download: "Télécharger le PDF",
+      view: "Voir en ligne",
     },
     contact: {
       sectionTitle: "Restons en Contact",
@@ -726,6 +762,7 @@ export const translations = {
     nav: {
       about: "Über mich",
       skills: "Skills",
+      resume: "Lebenslauf",
       projects: "Projekte",
       contact: "Kontakt",
       openMenu: "Menü öffnen",
@@ -802,6 +839,14 @@ export const translations = {
       sectionSubtitle: "Ein Einblick in meine Leidenschaft fürs Bauen und Problemlösen.",
       code: "Code",
       demo: "Demo",
+    },
+    resume: {
+      sectionTitle: "Mein Lebenslauf",
+      sectionSubtitle: "Lade das aktuelle PDF herunter oder sieh es dir an.",
+      heading: "Bereit zum Download",
+      description: "Der Lebenslauf ist als PDF verfügbar. Du kannst ihn herunterladen oder in einem neuen Tab öffnen.",
+      download: "PDF herunterladen",
+      view: "Online ansehen",
     },
     contact: {
       sectionTitle: "Lass Uns Vernetzen",
@@ -902,6 +947,7 @@ export const translations = {
     nav: {
       about: "关于我",
       skills: "技能",
+      resume: "简历",
       projects: "项目",
       contact: "联系",
       openMenu: "打开菜单",
@@ -970,6 +1016,14 @@ export const translations = {
       sectionSubtitle: "展现我对创造与解决问题的热爱。",
       code: "代码",
       demo: "演示",
+    },
+    resume: {
+      sectionTitle: "我的简历",
+      sectionSubtitle: "下载或查看包含我的经历的最新 PDF。",
+      heading: "可下载",
+      description: "简历为 PDF，可下载或在新标签页中打开。",
+      download: "下载 PDF",
+      view: "在线查看",
     },
     contact: {
       sectionTitle: "保持联系",
