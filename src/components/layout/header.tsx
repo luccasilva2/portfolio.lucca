@@ -20,6 +20,7 @@ export function Header() {
     { name: t.nav.skills, href: "#skills" },
     { name: t.nav.resume, href: "#resume" },
     { name: t.nav.projects, href: "#projects" },
+    { name: "EstudosLSO", href: "https://luccasilva2.github.io/EstudosLSO/", external: true },
   ];
 
   useEffect(() => {
@@ -45,7 +46,13 @@ export function Header() {
           <nav className="hidden items-center space-x-2 md:flex">
             {navItems.map((item) => (
               <Button key={item.name} variant="ghost" asChild>
-                <Link href={item.href}>{item.name}</Link>
+                <Link
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                >
+                  {item.name}
+                </Link>
               </Button>
             ))}
             <LanguageSwitcher className="ml-1" />
@@ -81,6 +88,8 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   onClick={toggleMobileMenu}
                   className="text-2xl font-semibold text-foreground transition-colors hover:text-primary"
                 >
