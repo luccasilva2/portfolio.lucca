@@ -20,7 +20,7 @@ export function Header() {
     { name: t.nav.skills, href: "#skills" },
     { name: t.nav.resume, href: "#resume" },
     { name: t.nav.projects, href: "#projects" },
-    { name: "EstudosLSO", href: "https://luccasilva2.github.io/EstudosLSO/", external: true },
+    { name: "EstudosLSO", href: "https://estudoslso.netlify.app", external: true },
   ];
 
   useEffect(() => {
