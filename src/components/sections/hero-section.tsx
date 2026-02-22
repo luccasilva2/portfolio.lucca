@@ -63,7 +63,7 @@ export function HeroSection() {
           {t.hero.subtitle}
         </p>
         <div ref={buttonRef} className="mt-8 opacity-0">
-          <Button asChild size="lg" className="group">
+          <Button asChild size="lg" className="group hero-glow">
             <Link href="#projects">
               {t.hero.cta}
               <ArrowDown className="ml-2 h-5 w-5 transition-transform group-hover:translate-y-1" />

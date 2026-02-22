@@ -14,6 +14,18 @@ interface AboutSectionProps {
 
 const timeline = [
   {
+    icon: GraduationCap,
+    date: "Janeiro de 2026 - Presente",
+    title: "Cursos EAD de alto valor",
+    description: "Formações EAD de alto valor, com certificações em andamento e aplicação prática contínua.",
+  },
+  {
+    icon: GraduationCap,
+    date: "Fevereiro de 2026 - Presente",
+    title: "Graduação (em andamento)",
+    description: "Início da graduação, com foco em aprofundar base teórica e prática em tecnologia.",
+  },
+  {
     icon: Briefcase,
     date: "2021 - Presente",
     title: "Desenvolvedor Full Stack",
@@ -87,24 +99,36 @@ export function AboutSection({ personalizedContent }: AboutSectionProps) {
             </p>
           </motion.div>
 
-          <div className="relative pl-6 border-l-2 border-primary/50">
+          <div className="relative">
+            <motion.div
+              className="absolute left-3 top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-primary via-accent/80 to-transparent"
+              initial={{ scaleY: 0, opacity: 0 }}
+              whileInView={{ scaleY: 1, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+              style={{ transformOrigin: "top" }}
+            />
             {localizedTimeline.map((item, index) => (
               <motion.div
                 key={index}
-                className="mb-8 last:mb-0"
+                className="group relative mb-8 pl-12 last:mb-0"
                 custom={index}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
                 variants={cardVariants}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ x: 6 }}
               >
-                <div className="absolute w-6 h-6 bg-background rounded-full -left-[13px] border-2 border-primary flex items-center justify-center">
-                  <item.icon className="w-3 h-3 text-primary" />
+                <div className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary/80 bg-card shadow-lg shadow-primary/20">
+                  <item.icon className="h-3 w-3 text-primary" />
                 </div>
-                <p className="text-sm text-muted-foreground">{item.date}</p>
-                <h4 className="font-semibold text-lg mt-1">{item.title}</h4>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
+                <div className="absolute left-[9px] top-[10px] h-2 w-2 animate-pulse rounded-full bg-primary/70" />
+                <div className="rounded-xl border border-primary/20 bg-card/70 p-4 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/10">
+                  <p className="text-xs uppercase tracking-wider text-primary/80">{item.date}</p>
+                  <h4 className="mt-1 text-lg font-semibold">{item.title}</h4>
+                  <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>

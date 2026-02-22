@@ -40,6 +40,18 @@ export const translations = {
         "Sou um Desenvolvedor Full Stack e Criador Digital apaixonado por criar experiências digitais bonitas, funcionais e centradas no usuário. Eu prospero em dar vida a ideias, do conceito à implantação. Meu trabalho é uma mistura de código limpo, design moderno e uma busca incessante pela perfeição.",
       timeline: [
         {
+          date: "Janeiro de 2026 - Presente",
+          title: "Cursos EAD de alto valor",
+          description:
+            "Formações EAD de alto valor, com certificações em andamento e aplicação prática contínua.",
+        },
+        {
+          date: "Fevereiro de 2026 - Presente",
+          title: "Graduação (em andamento)",
+          description:
+            "Início da graduação, com foco em aprofundar base teórica e prática em tecnologia.",
+        },
+        {
           date: "2021 - Presente",
           title: "Desenvolvedor Full Stack",
           description:

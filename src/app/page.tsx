@@ -7,6 +7,7 @@ import { SkillsSection } from '@/components/sections/skills-section';
 import { PortfolioSection } from '@/components/sections/portfolio-section';
 import { ContactSection } from '@/components/sections/contact-section';
 import { ResumeSection } from '@/components/sections/resume-section';
+import { NowSection } from '@/components/sections/now-section';
 import { Footer } from '@/components/layout/footer';
 import { useLanguage } from '@/components/language-provider';
 
@@ -15,13 +16,14 @@ export default function Home() {
   const aiBlurb = t.about.blurb;
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-transparent">
       <Header />
       <main className="flex-grow">
         <HeroSection />
         <AboutSection personalizedContent={aiBlurb} />
         <SkillsSection />
         <ResumeSection />
+        <NowSection />
         <PortfolioSection />
         <ContactSection />
       </main>

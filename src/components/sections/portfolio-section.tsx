@@ -70,6 +70,7 @@ const ProjectCard = ({
       }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8, scale: 1.01 }}
       transition={{ duration: 0.5, type: 'spring' }}
       viewport={{ once: true, amount: 0.3 }}
       className="w-full"
@@ -79,7 +80,7 @@ const ProjectCard = ({
         style={{ transform: "translateZ(50px)" }}
         className="w-full h-full"
       >
-        <Card className="group h-full overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/10">
+        <Card className="group shine-card h-full overflow-hidden border-primary/20 transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/10">
           <Link href={`/projetos/${project.id}`} scroll={false} className="block h-full">
             <div className="flex flex-col h-full">
               <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">

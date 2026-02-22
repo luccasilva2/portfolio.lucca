@@ -19,6 +19,7 @@ export function Header() {
     { name: t.nav.about, href: "#about" },
     { name: t.nav.skills, href: "#skills" },
     { name: t.nav.resume, href: "#resume" },
+    { name: "Now", href: "#now" },
     { name: t.nav.projects, href: "#projects" },
     { name: "EstudosLSO", href: "https://estudoslso.netlify.app", external: true },
   ];
