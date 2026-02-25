@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 import { ArrowDown } from "lucide-react";
 import { gsap } from "gsap";
 import { useLanguage } from "@/components/language-provider";
@@ -17,29 +18,24 @@ export function HeroSection() {
   useLayoutEffect(() => {
     if (!containerRef.current) return;
 
-    const timeline = gsap.timeline({
-      defaults: {
-        duration: 1.2,
-        ease: "power4.out",
-      },
-    });
+    const timeline = gsap.timeline();
 
     timeline
       .fromTo(
         titleRef.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, delay: 0.5 }
+        { y: 80, opacity: 0, scale: 0.95, filter: "blur(10px)" },
+        { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 1.5, ease: "power4.out", delay: 0.2 }
       )
       .fromTo(
         paragraphRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1 },
-        "-=0.9"
+        { y: 40, opacity: 0, filter: "blur(5px)" },
+        { y: 0, opacity: 1, filter: "blur(0px)", duration: 1.2, ease: "power3.out" },
+        "-=1.1"
       )
       .fromTo(
         buttonRef.current,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1 },
+        { y: 30, opacity: 0, scale: 0.9 },
+        { y: 0, opacity: 1, scale: 1, duration: 1, ease: "back.out(1.7)" },
         "-=0.9"
       );
 
@@ -63,12 +59,14 @@ export function HeroSection() {
           {t.hero.subtitle}
         </p>
         <div ref={buttonRef} className="mt-8 opacity-0">
-          <Button asChild size="lg" className="group hero-glow">
-            <Link href="#projects">
-              {t.hero.cta}
-              <ArrowDown className="ml-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
-            </Link>
-          </Button>
+          <MagneticButton>
+            <Button asChild size="lg" className="group hero-glow">
+              <Link href="#projects">
+                {t.hero.cta}
+                <ArrowDown className="ml-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
+              </Link>
+            </Button>
+          </MagneticButton>
         </div>
       </div>
     </section>

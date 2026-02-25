@@ -1,8 +1,10 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { Providers } from '@/components/providers';
 import { LayoutGroup } from 'framer-motion';
+import { CustomCursor } from '@/components/ui/custom-cursor';
+import { ScrollProgress } from '@/components/ui/scroll-progress';
 
 export const metadata: Metadata = {
   title: 'Lucca Silva Oliveira - Premium Digital Portfolio',
@@ -25,6 +27,8 @@ export default function RootLayout({
         <Providers>
           <LayoutGroup>
             <div className="relative z-10">
+              <CustomCursor />
+              <ScrollProgress />
               {children}
             </div>
           </LayoutGroup>
