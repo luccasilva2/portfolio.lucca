@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/header';
 import { HeroSection } from '@/components/sections/hero-section';
 import { AboutSection } from '@/components/sections/about-section';
 import { SkillsSection } from '@/components/sections/skills-section';
+import { TechStackSection } from '@/components/sections/tech-stack-section';
 import { PortfolioSection } from '@/components/sections/portfolio-section';
 import { ContactSection } from '@/components/sections/contact-section';
 import { ResumeSection } from '@/components/sections/resume-section';
@@ -21,6 +22,7 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
         <AboutSection personalizedContent={aiBlurb} />
+        <TechStackSection />
         <SkillsSection />
         <ResumeSection />
         <NowSection />

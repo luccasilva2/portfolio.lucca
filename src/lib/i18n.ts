@@ -23,6 +23,7 @@ export const translations = {
       about: "Sobre",
       skills: "Skills",
       resume: "Currículo",
+      now: "Agora",
       projects: "Projetos",
       contact: "Contato",
       openMenu: "Abrir menu",
@@ -31,6 +32,35 @@ export const translations = {
     hero: {
       subtitle: "Desenvolvedor Full Stack & Criador Digital",
       cta: "Ver Meu Trabalho",
+      ctaSecondary: "Entre em Contato",
+      available: "Disponível para projetos",
+      typingWords: [
+        "Full Stack Developer",
+        "UI/UX Enthusiast",
+        "Problem Solver",
+        "Tech Innovator",
+      ],
+    },
+    stats: {
+      items: [
+        { label: "Linhas de Código" },
+        { label: "Projetos" },
+        { label: "Cafés" },
+        { label: "Clientes Felizes" },
+      ],
+    },
+    techStack: {
+      title: "Tech Stack",
+      subtitle: "Tecnologias que domino e uso no dia a dia",
+    },
+    testimonials: {
+      sectionTitle: "Depoimentos",
+      sectionSubtitle: "O que dizem sobre meu trabalho",
+      items: [
+        { content: "Lucca entregou um projeto incrível! Superou todas as expectativas com sua atenção aos detalhes e criatividade." },
+        { content: "Profissional excepcional. Comunicação clara, entregas no prazo e código de altíssima qualidade." },
+        { content: "Trabalhar com o Lucca foi uma experiência fantástica. Ele transformou nossa visão em realidade." },
+      ],
     },
     about: {
       sectionTitle: "Sobre Mim",
@@ -145,6 +175,28 @@ export const translations = {
     footer: {
       rights: "Todos os direitos reservados.",
     },
+    now: {
+      sectionTitle: "Agora",
+      sectionSubtitle: "O que estou fazendo neste momento para evoluir como dev e entregar projetos melhores.",
+      lastUpdate: "Última atualização",
+      items: [
+        {
+          title: "Construindo agora",
+          description: "Projetos web com UX mais viva, animações inteligentes e foco em performance real no mobile.",
+          tags: ["Next.js", "TypeScript", "Motion"],
+        },
+        {
+          title: "Estudando",
+          description: "Arquitetura frontend escalável, padrões de design system e técnicas de interação avançada.",
+          tags: ["Design System", "A11y", "Arquitetura"],
+        },
+        {
+          title: "Melhorando",
+          description: "Polimento visual dos meus cases, documentação de decisões técnicas e storytelling dos projetos.",
+          tags: ["Case Study", "UI Polish", "DX"],
+        },
+      ],
+    },
     project: {
       notFound: "Projeto não encontrado.",
       close: "Fechar",
@@ -220,6 +272,7 @@ export const translations = {
       about: "About",
       skills: "Skills",
       resume: "Resume",
+      now: "Now",
       projects: "Projects",
       contact: "Contact",
       openMenu: "Open menu",
@@ -228,6 +281,35 @@ export const translations = {
     hero: {
       subtitle: "Full Stack Developer & Digital Creator",
       cta: "See My Work",
+      ctaSecondary: "Get in Touch",
+      available: "Available for projects",
+      typingWords: [
+        "Full Stack Developer",
+        "UI/UX Enthusiast",
+        "Problem Solver",
+        "Tech Innovator",
+      ],
+    },
+    stats: {
+      items: [
+        { label: "Lines of Code" },
+        { label: "Projects" },
+        { label: "Coffees" },
+        { label: "Happy Clients" },
+      ],
+    },
+    techStack: {
+      title: "Tech Stack",
+      subtitle: "Technologies I master and use daily",
+    },
+    testimonials: {
+      sectionTitle: "Testimonials",
+      sectionSubtitle: "What people say about my work",
+      items: [
+        { content: "Lucca delivered an incredible project! He exceeded all expectations with his attention to detail and creativity." },
+        { content: "Exceptional professional. Clear communication, on-time deliveries, and top-quality code." },
+        { content: "Working with Lucca was a fantastic experience. He turned our vision into reality." },
+      ],
     },
     about: {
       sectionTitle: "About Me",
@@ -330,6 +412,28 @@ export const translations = {
     footer: {
       rights: "All rights reserved.",
     },
+    now: {
+      sectionTitle: "Now",
+      sectionSubtitle: "What I'm doing right now to evolve as a dev and deliver better projects.",
+      lastUpdate: "Last update",
+      items: [
+        {
+          title: "Building now",
+          description: "Web projects with livelier UX, smart animations, and real mobile performance focus.",
+          tags: ["Next.js", "TypeScript", "Motion"],
+        },
+        {
+          title: "Studying",
+          description: "Scalable frontend architecture, design system patterns, and advanced interaction techniques.",
+          tags: ["Design System", "A11y", "Architecture"],
+        },
+        {
+          title: "Improving",
+          description: "Visual polish of my cases, documentation of technical decisions, and project storytelling.",
+          tags: ["Case Study", "UI Polish", "DX"],
+        },
+      ],
+    },
     project: {
       notFound: "Project not found.",
       close: "Close",
@@ -405,6 +509,7 @@ export const translations = {
       about: "Sobre mí",
       skills: "Habilidades",
       resume: "Currículum",
+      now: "Ahora",
       projects: "Proyectos",
       contact: "Contacto",
       openMenu: "Abrir menú",
@@ -413,6 +518,35 @@ export const translations = {
     hero: {
       subtitle: "Desarrollador Full Stack y Creador Digital",
       cta: "Ver Mi Trabajo",
+      ctaSecondary: "Contáctame",
+      available: "Disponible para proyectos",
+      typingWords: [
+        "Full Stack Developer",
+        "UI/UX Enthusiast",
+        "Problem Solver",
+        "Tech Innovator",
+      ],
+    },
+    stats: {
+      items: [
+        { label: "Líneas de Código" },
+        { label: "Proyectos" },
+        { label: "Cafés" },
+        { label: "Clientes Felices" },
+      ],
+    },
+    techStack: {
+      title: "Tech Stack",
+      subtitle: "Tecnologías que domino y uso a diario",
+    },
+    testimonials: {
+      sectionTitle: "Testimonios",
+      sectionSubtitle: "Lo que dicen sobre mi trabajo",
+      items: [
+        { content: "¡Lucca entregó un proyecto increíble! Superó todas las expectativas con su atención al detalle y creatividad." },
+        { content: "Profesional excepcional. Comunicación clara, entregas a tiempo y código de altísima calidad." },
+        { content: "Trabajar con Lucca fue una experiencia fantástica. Convirtió nuestra visión en realidad." },
+      ],
     },
     about: {
       sectionTitle: "Sobre Mí",
@@ -515,6 +649,28 @@ export const translations = {
     footer: {
       rights: "Todos los derechos reservados.",
     },
+    now: {
+      sectionTitle: "Ahora",
+      sectionSubtitle: "Lo que estoy haciendo ahora para evolucionar como dev y entregar mejores proyectos.",
+      lastUpdate: "Última actualización",
+      items: [
+        {
+          title: "Construyendo ahora",
+          description: "Proyectos web con UX más viva, animaciones inteligentes y enfoque en rendimiento móvil real.",
+          tags: ["Next.js", "TypeScript", "Motion"],
+        },
+        {
+          title: "Estudiando",
+          description: "Arquitectura frontend escalable, patrones de design system y técnicas de interacción avanzada.",
+          tags: ["Design System", "A11y", "Arquitectura"],
+        },
+        {
+          title: "Mejorando",
+          description: "Pulido visual de mis casos, documentación de decisiones técnicas y storytelling de proyectos.",
+          tags: ["Case Study", "UI Polish", "DX"],
+        },
+      ],
+    },
     project: {
       notFound: "Proyecto no encontrado.",
       close: "Cerrar",
@@ -590,6 +746,7 @@ export const translations = {
       about: "À propos",
       skills: "Compétences",
       resume: "CV",
+      now: "Maintenant",
       projects: "Projets",
       contact: "Contact",
       openMenu: "Ouvrir le menu",
@@ -598,6 +755,35 @@ export const translations = {
     hero: {
       subtitle: "Développeur Full Stack et Créateur Digital",
       cta: "Voir Mon Travail",
+      ctaSecondary: "Me Contacter",
+      available: "Disponible pour des projets",
+      typingWords: [
+        "Full Stack Developer",
+        "UI/UX Enthusiast",
+        "Problem Solver",
+        "Tech Innovator",
+      ],
+    },
+    stats: {
+      items: [
+        { label: "Lignes de Code" },
+        { label: "Projets" },
+        { label: "Cafés" },
+        { label: "Clients Satisfaits" },
+      ],
+    },
+    techStack: {
+      title: "Tech Stack",
+      subtitle: "Technologies que je maîtrise et utilise au quotidien",
+    },
+    testimonials: {
+      sectionTitle: "Témoignages",
+      sectionSubtitle: "Ce qu'on dit de mon travail",
+      items: [
+        { content: "Lucca a livré un projet incroyable ! Il a dépassé toutes les attentes avec son attention aux détails et sa créativité." },
+        { content: "Professionnel exceptionnel. Communication claire, livraisons à temps et code de très haute qualité." },
+        { content: "Travailler avec Lucca fut une expérience fantastique. Il a transformé notre vision en réalité." },
+      ],
     },
     about: {
       sectionTitle: "À Propos de Moi",
@@ -700,6 +886,28 @@ export const translations = {
     footer: {
       rights: "Tous droits réservés.",
     },
+    now: {
+      sectionTitle: "Maintenant",
+      sectionSubtitle: "Ce que je fais en ce moment pour évoluer en tant que dev et livrer de meilleurs projets.",
+      lastUpdate: "Dernière mise à jour",
+      items: [
+        {
+          title: "En construction",
+          description: "Projets web avec une UX plus vivante, des animations intelligentes et un focus sur les performances mobiles.",
+          tags: ["Next.js", "TypeScript", "Motion"],
+        },
+        {
+          title: "En étude",
+          description: "Architecture frontend évolutive, patterns de design system et techniques d'interaction avancées.",
+          tags: ["Design System", "A11y", "Architecture"],
+        },
+        {
+          title: "En amélioration",
+          description: "Polissage visuel de mes cas, documentation des décisions techniques et storytelling des projets.",
+          tags: ["Case Study", "UI Polish", "DX"],
+        },
+      ],
+    },
     project: {
       notFound: "Projet introuvable.",
       close: "Fermer",
@@ -775,6 +983,7 @@ export const translations = {
       about: "Über mich",
       skills: "Skills",
       resume: "Lebenslauf",
+      now: "Jetzt",
       projects: "Projekte",
       contact: "Kontakt",
       openMenu: "Menü öffnen",
@@ -783,6 +992,35 @@ export const translations = {
     hero: {
       subtitle: "Full-Stack-Entwickler und Digital Creator",
       cta: "Meine Arbeit ansehen",
+      ctaSecondary: "Kontakt aufnehmen",
+      available: "Verfügbar für Projekte",
+      typingWords: [
+        "Full Stack Developer",
+        "UI/UX Enthusiast",
+        "Problem Solver",
+        "Tech Innovator",
+      ],
+    },
+    stats: {
+      items: [
+        { label: "Codezeilen" },
+        { label: "Projekte" },
+        { label: "Kaffees" },
+        { label: "Zufriedene Kunden" },
+      ],
+    },
+    techStack: {
+      title: "Tech Stack",
+      subtitle: "Technologien, die ich beherrsche und täglich nutze",
+    },
+    testimonials: {
+      sectionTitle: "Referenzen",
+      sectionSubtitle: "Was andere über meine Arbeit sagen",
+      items: [
+        { content: "Lucca hat ein unglaubliches Projekt abgeliefert! Er hat alle Erwartungen mit seiner Detailgenauigkeit und Kreativität übertroffen." },
+        { content: "Außergewöhnlicher Profi. Klare Kommunikation, pünktliche Lieferungen und Code höchster Qualität." },
+        { content: "Die Zusammenarbeit mit Lucca war fantastisch. Er hat unsere Vision in die Realität umgesetzt." },
+      ],
     },
     about: {
       sectionTitle: "Über Mich",
@@ -885,6 +1123,28 @@ export const translations = {
     footer: {
       rights: "Alle Rechte vorbehalten.",
     },
+    now: {
+      sectionTitle: "Jetzt",
+      sectionSubtitle: "Was ich gerade tue, um mich als Entwickler weiterzuentwickeln und bessere Projekte zu liefern.",
+      lastUpdate: "Letzte Aktualisierung",
+      items: [
+        {
+          title: "Baue gerade",
+          description: "Webprojekte mit lebendigerer UX, intelligenten Animationen und echtem Fokus auf mobile Performance.",
+          tags: ["Next.js", "TypeScript", "Motion"],
+        },
+        {
+          title: "Studiere",
+          description: "Skalierbare Frontend-Architektur, Design-System-Patterns und fortgeschrittene Interaktionstechniken.",
+          tags: ["Design System", "A11y", "Architektur"],
+        },
+        {
+          title: "Verbessere",
+          description: "Visuelles Polieren meiner Cases, Dokumentation technischer Entscheidungen und Projekt-Storytelling.",
+          tags: ["Case Study", "UI Polish", "DX"],
+        },
+      ],
+    },
     project: {
       notFound: "Projekt nicht gefunden.",
       close: "Schließen",
@@ -960,6 +1220,7 @@ export const translations = {
       about: "关于我",
       skills: "技能",
       resume: "简历",
+      now: "现在",
       projects: "项目",
       contact: "联系",
       openMenu: "打开菜单",
@@ -968,6 +1229,35 @@ export const translations = {
     hero: {
       subtitle: "全栈开发者与数字创作者",
       cta: "查看作品",
+      ctaSecondary: "联系我",
+      available: "可接受项目",
+      typingWords: [
+        "Full Stack Developer",
+        "UI/UX Enthusiast",
+        "Problem Solver",
+        "Tech Innovator",
+      ],
+    },
+    stats: {
+      items: [
+        { label: "代码行数" },
+        { label: "项目" },
+        { label: "咖啡" },
+        { label: "满意客户" },
+      ],
+    },
+    techStack: {
+      title: "技术栈",
+      subtitle: "我精通并日常使用的技术",
+    },
+    testimonials: {
+      sectionTitle: "客户评价",
+      sectionSubtitle: "他们对我工作的评价",
+      items: [
+        { content: "Lucca交付了一个令人难以置信的项目！他以细节关注和创意超越了所有期望。" },
+        { content: "杰出的专业人士。沟通清晰，准时交付，代码质量极高。" },
+        { content: "与Lucca合作是一次绝妙的体验。他将我们的愿景变成了现实。" },
+      ],
     },
     about: {
       sectionTitle: "关于我",
@@ -1061,6 +1351,28 @@ export const translations = {
     },
     footer: {
       rights: "版权所有。",
+    },
+    now: {
+      sectionTitle: "现在",
+      sectionSubtitle: "我正在做什么来成长为更好的开发者，交付更优质的项目。",
+      lastUpdate: "最后更新",
+      items: [
+        {
+          title: "正在构建",
+          description: "更生动的用户体验、智能动画，以及真正关注移动端性能的 Web 项目。",
+          tags: ["Next.js", "TypeScript", "Motion"],
+        },
+        {
+          title: "正在学习",
+          description: "可扩展的前端架构、设计系统模式和高级交互技术。",
+          tags: ["Design System", "A11y", "架构"],
+        },
+        {
+          title: "正在改进",
+          description: "案例视觉打磨、技术决策文档化和项目叙事。",
+          tags: ["Case Study", "UI Polish", "DX"],
+        },
+      ],
     },
     project: {
       notFound: "未找到项目。",

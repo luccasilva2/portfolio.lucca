@@ -3,14 +3,22 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 export function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldShowCustom, setShouldShowCustom] = useState(false);
 
   useEffect(() => {
-    // Hide default cursor
-    document.body.style.cursor = 'none';
+    if (prefersReducedMotion()) return;
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (isTouch) return;
+
+    setShouldShowCustom(true);
+    document.body.style.cursor = "none";
 
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -25,20 +33,23 @@ export function CustomCursor() {
       setIsVisible(true);
     };
 
+    const onEnter = () => setIsHovering(true);
+    const onLeave = () => setIsHovering(false);
+
     const handleLinkHoverEvents = () => {
       const interactables = document.querySelectorAll(
         'a, button, input, textarea, select, [role="button"], [tabindex]:not([tabindex="-1"])'
       );
 
       interactables.forEach((el) => {
-        el.addEventListener("mouseenter", () => setIsHovering(true));
-        el.addEventListener("mouseleave", () => setIsHovering(false));
+        el.addEventListener("mouseenter", onEnter);
+        el.addEventListener("mouseleave", onLeave);
       });
 
       return () => {
         interactables.forEach((el) => {
-          el.removeEventListener("mouseenter", () => setIsHovering(true));
-          el.removeEventListener("mouseleave", () => setIsHovering(false));
+          el.removeEventListener("mouseenter", onEnter);
+          el.removeEventListener("mouseleave", onLeave);
         });
       };
     };
@@ -62,11 +73,11 @@ export function CustomCursor() {
       document.removeEventListener("mouseenter", handleMouseEnter);
       observer.disconnect();
       cleanupHover();
-      document.body.style.cursor = 'auto'; // Restore on unmount
+      document.body.style.cursor = "auto";
     };
   }, [isVisible]);
 
-  // Don't render on mobile screens since cursor makes no sense there
+  if (!shouldShowCustom) return null;
   if (typeof window !== "undefined" && window.innerWidth < 768) return null;
   if (!isVisible) return null;
 
@@ -107,10 +118,11 @@ export function CustomCursor() {
         variants={variants}
         animate={isHovering ? "hover" : "default"}
         transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.5
+          x: { duration: 0 },
+          y: { duration: 0 },
+          scale: { type: "spring", stiffness: 800, damping: 35 },
+          backgroundColor: { duration: 0.15 },
+          border: { duration: 0.15 },
         }}
         style={{
            willChange: "transform"
@@ -121,9 +133,9 @@ export function CustomCursor() {
         variants={dotVariants}
         animate={isHovering ? "hover" : "default"}
         transition={{
-          type: "spring",
-          stiffness: 1000,
-          damping: 40,
+          x: { duration: 0 },
+          y: { duration: 0 },
+          scale: { type: "spring", stiffness: 1200, damping: 40 },
         }}
         style={{
           willChange: "transform"

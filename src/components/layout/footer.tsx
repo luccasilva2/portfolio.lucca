@@ -5,14 +5,36 @@ import { Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useLanguage } from "@/components/language-provider";
+import { motion } from "framer-motion";
+
+const socialLinks = [
+  { name: "GitHub", icon: Github, url: "https://github.com/luccasilva2", color: "hover:text-[#6e5494]" },
+  { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/luccaa_so?igsh=MWR3M2hzNzRrZ29pYw%3D%3D", color: "hover:text-[#E4405F]" },
+  { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/lucca-silva-oliveira/", color: "hover:text-[#0A66C2]" },
+];
+
+const iconVariants = {
+  initial: { scale: 1, rotate: 0 },
+  hover: { 
+    scale: 1.2, 
+    rotate: [0, -10, 10, 0],
+    transition: { 
+      rotate: { duration: 0.4, ease: "easeInOut" },
+      scale: { duration: 0.2 }
+    }
+  },
+};
+
+const buttonVariants = {
+  initial: { y: 0 },
+  hover: { 
+    y: -4,
+    transition: { duration: 0.2, ease: "easeOut" }
+  },
+};
 
 export function Footer() {
   const { t } = useLanguage();
-  const socialLinks = [
-    { name: "GitHub", icon: Github, url: "https://github.com/luccasilva2" },
-    { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/luccaa_so?igsh=MWR3M2hzNzRrZ29pYw%3D%3D" },
-    { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/lucca-silva-oliveira/" },
-  ];
 
   return (
     <footer className="bg-card border-t border-border/50">
@@ -24,13 +46,32 @@ export function Footer() {
               &copy; {new Date().getFullYear()} Lucca Silva Oliveira. {t.footer.rights}
             </p>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1">
             {socialLinks.map((link) => (
-              <Button key={link.name} variant="ghost" size="icon" asChild>
-                <Link href={link.url} aria-label={link.name}>
-                  <link.icon className="h-5 w-5" />
-                </Link>
-              </Button>
+              <motion.div
+                key={link.name}
+                variants={buttonVariants}
+                initial="initial"
+                whileHover="hover"
+              >
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  asChild 
+                  className={`group relative overflow-hidden transition-colors duration-300 ${link.color}`}
+                >
+                  <Link href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+                    <motion.div
+                      variants={iconVariants}
+                      initial="initial"
+                      whileHover="hover"
+                    >
+                      <link.icon className="h-5 w-5 transition-all duration-300" />
+                    </motion.div>
+                    <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  </Link>
+                </Button>
+              </motion.div>
             ))}
           </div>
         </div>
