@@ -1,14 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { projectsBase } from "@/lib/projects";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ExternalLink, Github, X } from "lucide-react";
+import { projectsBase } from "@/lib/projects";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, X } from "lucide-react";
-import { useEffect } from "react";
 import { useLanguage } from "@/components/language-provider";
 
 export default function ProjectPage() {
@@ -22,88 +20,96 @@ export default function ProjectPage() {
   const image = PlaceHolderImages.find((img) => img.id === projectId);
 
   useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        router.back();
-      }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") router.back();
     };
-    window.addEventListener('keydown', handleEsc);
-
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [router]);
-
 
   if (!project) {
     return (
-      <div className="flex items-center justify-center h-screen text-white">
+      <div className="flex h-screen items-center justify-center text-foreground/80">
         {t.project.notFound}
       </div>
     );
   }
 
   return (
-    <div 
-      className="fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center"
+    <div
       onClick={() => router.back()}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-background/85 p-4 backdrop-blur-2xl md:p-8"
     >
-      <motion.div
+      <motion.article
         layoutId={`project-card-${projectId}`}
-        className="relative w-full max-w-4xl max-h-[90vh] bg-card rounded-lg overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
+        className="glass relative max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-3xl"
       >
-        <div className="p-8">
-           <Button 
-            variant="ghost" 
-            size="icon" 
-            className="absolute top-4 right-4 z-10 text-muted-foreground hover:text-foreground"
-            onClick={() => router.back()}
-          >
-            <X className="h-6 w-6"/>
-            <span className="sr-only">{t.project.close}</span>
-          </Button>
+        <button
+          onClick={() => router.back()}
+          aria-label={t.project.close}
+          className="absolute right-5 top-5 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 bg-background/40 text-foreground transition-colors hover:bg-foreground/10"
+        >
+          <X className="h-4 w-4" />
+        </button>
 
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8">
-            {image && (
-              <Image
-                src={image.imageUrl}
-                alt={project.title}
-                fill
-                className="object-cover"
-                data-ai-hint={image.imageHint}
-              />
-            )}
-          </div>
-          
-          <h1 className="text-4xl font-bold font-headline text-gradient mb-4">{project.title}</h1>
-          
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map((tag) => (
-              <Badge key={tag} variant="default">{tag}</Badge>
-            ))}
-          </div>
-          
-          <p className="text-muted-foreground leading-relaxed">
-            {project.longDescription}
-          </p>
-
-          <div className="flex items-center gap-4 mt-8">
-             <Button asChild variant="outline">
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4"/>
-                    {t.project.viewSource}
-                </a>
-             </Button>
-             <Button asChild>
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4"/>
-                    {t.project.visit}
-                </a>
-             </Button>
+        <div className="relative aspect-[16/9] w-full overflow-hidden">
+          {image && (
+            <Image
+              src={image.imageUrl}
+              alt={project.title}
+              fill
+              className="object-cover"
+              data-ai-hint={image.imageHint}
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10">
+            <p className="mono mb-3 text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+              Case study
+            </p>
+            <h1 className="font-display text-4xl tracking-tight md:text-6xl">
+              <span className="italic text-aurora">{project.title}</span>
+            </h1>
           </div>
         </div>
-      </motion.div>
+
+        <div className="p-7 md:p-12">
+          <div className="flex flex-wrap gap-1.5">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="mono rounded-full border border-foreground/10 bg-foreground/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-widest text-foreground/85"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            {project.longDescription}
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3 border-t border-foreground/10 pt-8">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-5 py-2.5 text-sm transition-colors hover:border-foreground/30 hover:bg-foreground/5"
+            >
+              <Github className="h-4 w-4" />
+              {t.project.viewSource}
+            </a>
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
+            >
+              <ExternalLink className="h-4 w-4" />
+              {t.project.visit}
+            </a>
+          </div>
+        </div>
+      </motion.article>
     </div>
   );
 }

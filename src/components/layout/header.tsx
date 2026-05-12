@@ -1,275 +1,173 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Sparkles } from "lucide-react";
-import { useLanguage } from "@/components/language-provider";
 import { LanguageSwitcher } from "@/components/language-switcher";
-
-const navItemVariants = {
-  hidden: { opacity: 0, y: -10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.3,
-      ease: "easeOut",
-    },
-  }),
-};
-
-const mobileMenuVariants = {
-  hidden: { opacity: 0, scale: 0.95, y: -20 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.3,
-      ease: "easeOut",
-    },
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.95,
-    y: -20,
-    transition: {
-      duration: 0.2,
-      ease: "easeIn",
-    },
-  },
-};
-
-const mobileNavItemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.08,
-      duration: 0.3,
-    },
-  }),
-};
+import { useLanguage } from "@/components/language-provider";
+import { cn } from "@/lib/utils";
 
 export function Header() {
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("home");
 
-  const navItems = [
-    { name: t.nav.about, href: "#about" },
-    { name: t.nav.skills, href: "#skills" },
-    { name: t.nav.resume, href: "#resume" },
-    { name: t.nav.now, href: "#now" },
-    { name: t.nav.projects, href: "#projects" },
-    { name: "EstudosLSO", href: "https://estudoslso.netlify.app", external: true },
+  const items = [
+    { label: t.nav.about, href: "#about", index: "01" },
+    { label: t.nav.skills, href: "#skills", index: "02" },
+    { label: t.nav.resume, href: "#resume", index: "03" },
+    { label: t.nav.now, href: "#now", index: "04" },
+    { label: t.nav.projects, href: "#projects", index: "05" },
+    { label: "EstudosLSO", href: "https://estudoslso.netlify.app", index: "06", external: true },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      // Detect active section
-      const sections = ["home", "about", "skills", "resume", "now", "projects", "contact"];
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(section);
-            break;
-          }
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      const ids = ["home", "about", "skills", "resume", "now", "projects", "contact"];
+      for (const id of [...ids].reverse()) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 160) {
+          setActive(id);
+          break;
         }
       }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
     <>
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled
-            ? "bg-background/70 shadow-lg shadow-black/5 backdrop-blur-xl border-b border-white/10"
-            : "bg-transparent"
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          scrolled ? "py-3" : "py-5"
         )}
       >
-        <div className="container mx-auto flex h-20 items-center justify-between px-6">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+        <div className="container-edge">
+          <div
+            className={cn(
+              "flex items-center justify-between rounded-full px-4 py-2.5 transition-all duration-500",
+              scrolled
+                ? "glass"
+                : "border border-transparent"
+            )}
           >
             <Logo />
-          </motion.div>
 
-          <nav className="hidden items-center space-x-1 md:flex">
-            {navItems.map((item, i) => {
-              const isActive = activeSection === item.href.replace("#", "");
-              return (
-                <motion.div
-                  key={item.name}
-                  custom={i}
-                  initial="hidden"
-                  animate="visible"
-                  variants={navItemVariants}
-                >
-                  <Button
-                    variant="ghost"
-                    asChild
+            <nav className="hidden items-center gap-1 lg:flex">
+              {items.map((item) => {
+                const id = item.href.replace("#", "");
+                const isActive = active === id;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
                     className={cn(
-                      "relative transition-all duration-300",
-                      isActive && "text-primary"
+                      "group relative inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm transition-colors",
+                      isActive
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     )}
                   >
-                    <Link
-                      href={item.href}
-                      target={item.external ? "_blank" : undefined}
-                      rel={item.external ? "noopener noreferrer" : undefined}
-                    >
-                      {item.name}
-                      {isActive && (
-                        <motion.span
-                          layoutId="activeNav"
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        />
-                      )}
-                    </Link>
-                  </Button>
-                </motion.div>
-              );
-            })}
+                    <span className="mono text-[10px] tracking-widest text-muted-foreground/70">
+                      {item.index}
+                    </span>
+                    <span>{item.label}</span>
+                    {isActive && (
+                      <motion.span
+                        layoutId="header-active"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        className="absolute inset-0 -z-10 rounded-full bg-foreground/5 ring-1 ring-inset ring-foreground/10"
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
 
-            <motion.div
-              custom={navItems.length}
-              initial="hidden"
-              animate="visible"
-              variants={navItemVariants}
-            >
-              <LanguageSwitcher className="ml-1" />
-            </motion.div>
-
-            <motion.div
-              custom={navItems.length + 1}
-              initial="hidden"
-              animate="visible"
-              variants={navItemVariants}
-            >
-              <Button asChild className="ml-2 group hero-glow">
-                <Link href="#contact" className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-                  {t.nav.contact}
-                </Link>
-              </Button>
-            </motion.div>
-          </nav>
-
-          <div className="md:hidden">
-            <Button onClick={toggleMobileMenu} variant="ghost" size="icon" className="relative">
-              <AnimatePresence mode="wait">
-                {mobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X className="h-6 w-6" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu className="h-6 w-6" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              <span className="sr-only">{mobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}</span>
-            </Button>
+            <div className="flex items-center gap-2">
+              <div className="hidden sm:block">
+                <LanguageSwitcher />
+              </div>
+              <Link
+                href="#contact"
+                className="group hidden items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:bg-foreground/90 md:inline-flex"
+              >
+                {t.nav.contact}
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+              <button
+                onClick={() => setOpen(!open)}
+                aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/10 bg-foreground/5 text-foreground transition-colors hover:bg-foreground/10 lg:hidden"
+              >
+                {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.header>
 
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {open && (
           <motion.div
-            variants={mobileMenuVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl p-6 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 lg:hidden"
           >
-            <div className="flex items-center justify-between">
-              <Logo />
-              <Button onClick={toggleMobileMenu} variant="ghost" size="icon">
-                <X className="h-6 w-6" />
-                <span className="sr-only">{t.nav.closeMenu}</span>
-              </Button>
-            </div>
-
-            <nav className="mt-12 flex flex-col items-center space-y-6">
-              {[...navItems, { name: t.nav.contact, href: "#contact", external: false }].map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  custom={i}
-                  initial="hidden"
-                  animate="visible"
-                  variants={mobileNavItemVariants}
-                >
-                  <Link
-                    href={item.href}
-                    target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noopener noreferrer" : undefined}
-                    onClick={toggleMobileMenu}
-                    className="text-2xl font-semibold text-foreground transition-all duration-300 hover:text-primary hover:scale-105"
+            <div className="absolute inset-0 bg-background/85 backdrop-blur-2xl" />
+            <motion.nav
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="relative flex h-full flex-col justify-between px-8 pb-12 pt-28"
+            >
+              <ul className="flex flex-col gap-1">
+                {items.map((item, i) => (
+                  <motion.li
+                    key={item.href}
+                    initial={{ x: 30, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.08 + i * 0.05 }}
                   >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-
-              <motion.div
-                custom={navItems.length + 1}
-                initial="hidden"
-                animate="visible"
-                variants={mobileNavItemVariants}
-                className="pt-6"
-              >
-                <LanguageSwitcher align="start" />
-              </motion.div>
-            </nav>
-
-            {/* Decorative Elements */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="w-32 h-32 rounded-full bg-primary/20 blur-3xl"
-              />
-            </div>
+                    <Link
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      onClick={() => setOpen(false)}
+                      className="group flex items-baseline justify-between border-b border-foreground/10 py-4"
+                    >
+                      <span className="font-display text-3xl tracking-tight">{item.label}</span>
+                      <span className="mono text-xs text-muted-foreground">{item.index}</span>
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+              <div className="flex items-center justify-between">
+                <Link
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background"
+                >
+                  {t.nav.contact} <ArrowUpRight className="h-4 w-4" />
+                </Link>
+                <LanguageSwitcher align="end" />
+              </div>
+            </motion.nav>
           </motion.div>
         )}
       </AnimatePresence>

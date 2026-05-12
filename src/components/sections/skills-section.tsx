@@ -2,97 +2,70 @@
 
 import { motion } from "framer-motion";
 import {
-  Layers,
-  Smartphone,
-  PenTool,
   BrainCircuit,
   DatabaseZap,
+  Layers,
+  PenTool,
   ServerCog,
+  Smartphone,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Section } from "../ui/section";
 import { useLanguage } from "@/components/language-provider";
 
-const skills = [
-  {
-    icon: Layers,
-    gradient: "from-orange-500 to-red-500",
-    bgGlow: "group-hover:shadow-orange-500/25",
-  },
-  {
-    icon: Smartphone,
-    gradient: "from-blue-500 to-cyan-500",
-    bgGlow: "group-hover:shadow-blue-500/25",
-  },
-  {
-    icon: DatabaseZap,
-    gradient: "from-emerald-500 to-teal-500",
-    bgGlow: "group-hover:shadow-emerald-500/25",
-  },
-  {
-    icon: BrainCircuit,
-    gradient: "from-purple-500 to-pink-500",
-    bgGlow: "group-hover:shadow-purple-500/25",
-  },
-  {
-    icon: PenTool,
-    gradient: "from-amber-500 to-orange-500",
-    bgGlow: "group-hover:shadow-amber-500/25",
-  },
-  {
-    icon: ServerCog,
-    gradient: "from-indigo-500 to-violet-500",
-    bgGlow: "group-hover:shadow-indigo-500/25",
-  },
+const meta = [
+  { icon: Layers, glow: "from-primary/30 to-transparent" },
+  { icon: Smartphone, glow: "from-accent/30 to-transparent" },
+  { icon: DatabaseZap, glow: "from-emerald-500/30 to-transparent" },
+  { icon: BrainCircuit, glow: "from-fuchsia-500/30 to-transparent" },
+  { icon: PenTool, glow: "from-highlight/40 to-transparent" },
+  { icon: ServerCog, glow: "from-indigo-500/30 to-transparent" },
 ];
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1 },
-};
 
 export function SkillsSection() {
   const { t } = useLanguage();
-  const localizedSkills = skills.map((skill, index) => ({
-    ...skill,
-    title: t.skills.items[index]?.title ?? "",
-    description: t.skills.items[index]?.description ?? "",
-  }));
+  const items = t.skills.items.map((s, i) => ({ ...s, ...meta[i] }));
 
   return (
-    <Section id="skills" title={t.skills.sectionTitle} subtitle={t.skills.sectionSubtitle}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {localizedSkills.map((skill, index) => (
-          <motion.div
-            key={skill.title}
-            custom={index}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={cardVariants}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <Card className={`group h-full relative overflow-hidden border-transparent bg-gradient-to-br from-card via-card to-card/80 transition-all duration-500 hover:border-primary/30 hover:shadow-2xl ${skill.bgGlow}`}>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardHeader className="relative flex flex-row items-center gap-4">
-                <motion.div 
-                  className={`p-3 rounded-xl bg-gradient-to-br ${skill.gradient} shadow-lg`}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <skill.icon className="w-6 h-6 text-white" />
-                </motion.div>
-                <CardTitle className="font-headline text-xl group-hover:text-primary transition-colors duration-300">
-                  {skill.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="relative">
-                <p className="text-muted-foreground leading-relaxed">{skill.description}</p>
-              </CardContent>
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-            </Card>
-          </motion.div>
-        ))}
+    <Section
+      id="skills"
+      index="03"
+      title={t.skills.sectionTitle}
+      eyebrow="Expertise"
+      subtitle={t.skills.sectionSubtitle}
+    >
+      <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {items.map((skill, i) => {
+          const Icon = skill.icon ?? Layers;
+          return (
+            <motion.article
+              key={skill.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: i * 0.07 }}
+              whileHover={{ y: -4 }}
+              className="glass group relative overflow-hidden rounded-3xl p-7"
+            >
+              <div
+                aria-hidden
+                className={`pointer-events-none absolute -inset-px -z-10 bg-gradient-to-br ${skill.glow} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+              />
+              <div className="flex items-start justify-between">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-foreground/10 bg-foreground/[0.04] text-primary">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <span className="mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  0{i + 1}
+                </span>
+              </div>
+              <h3 className="mt-8 font-display text-2xl tracking-tight">{skill.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {skill.description}
+              </p>
+              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-foreground/15 to-transparent" />
+            </motion.article>
+          );
+        })}
       </div>
     </Section>
   );

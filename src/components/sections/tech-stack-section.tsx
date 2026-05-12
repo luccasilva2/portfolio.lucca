@@ -3,25 +3,9 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/components/language-provider";
 import {
-  SiTypescript,
-  SiJavascript,
-  SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiCss,
-  SiHtml5,
-  SiNodedotjs,
-  SiPython,
-  SiFlutter,
-  SiFirebase,
-  SiSupabase,
-  SiMysql,
-  SiMongodb,
-  SiGit,
-  SiDocker,
-  SiLinux,
-  SiN8N,
-  SiFigma,
+  SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss,
+  SiCss, SiHtml5, SiNodedotjs, SiPython, SiFlutter, SiFirebase,
+  SiSupabase, SiMysql, SiMongodb, SiGit, SiDocker, SiLinux, SiN8N, SiFigma,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { TbBrandReactNative } from "react-icons/tb";
@@ -52,69 +36,46 @@ const technologies = [
 
 export function TechStackSection() {
   const { t } = useLanguage();
+  const loop = [...technologies, ...technologies];
 
   return (
-    <section className="py-16 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="tech" className="relative py-20 md:py-28 scroll-mt-24">
+      <div className="container-edge">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7 }}
+          className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
-            <span className="text-gradient">{t.techStack?.title || "Tech Stack"}</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t.techStack?.subtitle || "Tecnologias que domino e uso no dia a dia"}
+          <div>
+            <p className="eyebrow">
+              <span className="mono text-primary/80">02</span> {t.techStack?.title}
+            </p>
+            <h2 className="mt-4 font-display text-3xl leading-tight tracking-tight md:text-5xl">
+              <span className="italic text-aurora">Stack</span> que uso no dia a dia
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm text-muted-foreground">
+            {t.techStack?.subtitle}
           </p>
         </motion.div>
+      </div>
 
-        {/* Infinite Scroll Container */}
-        <div className="relative">
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
-
-          {/* Scrolling container */}
-          <div className="overflow-hidden">
-            <motion.div
-              className="flex gap-8 py-4"
-              animate={{ x: [0, -2000] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 35,
-                  ease: "linear",
-                },
-              }}
+      {/* full-bleed marquee */}
+      <div className="relative mask-fade-x">
+        <div className="flex w-max gap-3 py-2 animate-marquee">
+          {loop.map((tech, i) => (
+            <div
+              key={i}
+              className="glass-soft hover-lift group flex items-center gap-3 rounded-full px-5 py-3"
             >
-              {/* Double the items for seamless loop */}
-              {[...technologies, ...technologies].map((tech, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 group"
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-card/80 backdrop-blur-sm border border-primary/10 flex flex-col items-center justify-center gap-2 transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-lg group-hover:shadow-primary/10">
-                    <tech.icon
-                      className="w-8 h-8 md:w-10 md:h-10 transition-all duration-300"
-                      style={{ color: tech.color }}
-                    />
-                    <span className="text-[10px] md:text-xs text-muted-foreground font-medium group-hover:text-foreground transition-colors">
-                      {tech.name}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+              <tech.icon className="h-5 w-5 shrink-0" style={{ color: tech.color }} />
+              <span className="mono text-xs uppercase tracking-[0.18em] text-foreground/85">
+                {tech.name}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

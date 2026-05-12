@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"npm run typecheck 2>&1\",\"timeout\":60000,\"description\":\"Verificar tipos TypeScript\"}",
-  "error": "Exit code 2\n\n> nextn@0.1.0 typecheck\n> tsc --noEmit\n\nsrc/components/sections/tech-stack-section.tsx(11,3): error TS2724: '\"react-icons/si\"' has no exported member named 'SiCss3'. Did you mean 'SiCss'?\nsrc/components/sections/tech-stack-section.tsx(15,3): error TS2305: Module '\"react-icons/si\"' has no exported member 'SiJava'.\n\n\n> nextn@0.1.0 typecheck\n> tsc --noEmit\n\nsrc/components/sections/tech-stack-section.tsx(11,3): error TS2724: '\"react-icons/si\"' has no exported member named 'SiCss3'. Did ...",
-  "timestamp": "2026-04-01T02:33:23.825Z",
-  "retry_count": 1
-}
