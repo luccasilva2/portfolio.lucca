@@ -13,40 +13,10 @@ export const projectsBase: ProjectBase[] = [
     githubUrl: "https://github.com/luccasilva2/appQuanta",
   },
   {
-    id: "project-2",
-    tags: ["Next.js", "React", "TypeScript", "TailwindCSS"],
-    liveUrl: "luccasilva2.github.io/Site_CH/",
-    githubUrl: "https://github.com/luccasilva2/Site_CH",
-  },
-  {
     id: "project-3",
     tags: ["Python", "API", "Server", "AI"],
     liveUrl: "luccasilva2.github.io/appQuanta-server/",
     githubUrl: "https://github.com/luccasilva2/appQuanta-server",
-  },
-  {
-    id: "project-4",
-    tags: ["React", "Next.js", "Node.js"],
-    liveUrl: "luccasilva2.github.io/portfolio.lucca/",
-    githubUrl: "https://github.com/luccasilva2/portfolio.lucca",
-  },
-  {
-    id: "project-5",
-    tags: ["JavaScript", "HTML", "CSS"],
-    liveUrl: "luccasilva2.github.io/clinica-web/",
-    githubUrl: "https://github.com/luccasilva2/clinica-web",
-  },
-  {
-    id: "project-6",
-    tags: ["HTML", "CSS", "Prototyping"],
-    liveUrl: "luccasilva2.github.io/Sites",
-    githubUrl: "https://github.com/luccasilva2/Sites",
-  },
-  {
-    id: "project-7",
-    tags: ["Python", "AI", "Machine Learning"],
-    liveUrl: "luccasilva2.github.io/Minha_IA/",
-    githubUrl: "https://github.com/luccasilva2/Minha_IA",
   },
   {
     id: "project-8",
