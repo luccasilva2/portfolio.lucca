@@ -73,7 +73,7 @@ export function ContactSection() {
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-foreground/10 bg-foreground/[0.05] text-primary">
                 <Mail className="h-4 w-4" />
               </span>
-              <span className="text-foreground/90">contato@lucca.dev</span>
+              <span className="text-foreground/90">silvaoliveiralucca@gmail.com</span>
             </li>
             <li className="flex items-center gap-3 text-sm">
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-foreground/10 bg-foreground/[0.05] text-primary">

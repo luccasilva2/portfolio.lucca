@@ -31,7 +31,7 @@ export function ResumeSection() {
                 <FileText className="h-5 w-5" />
               </span>
               <span className="mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
-                curriculo.pdf · v2026
+                Currículo profissional.pdf · v2026
               </span>
             </div>
             <h3 className="mt-6 font-display text-3xl tracking-tight md:text-5xl">
@@ -42,7 +42,7 @@ export function ResumeSection() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/curriculo.pdf"
+                href="/Currículo profissional.pdf"
                 download
                 className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:bg-foreground/90"
               >
@@ -50,7 +50,7 @@ export function ResumeSection() {
                 {t.resume.download}
               </Link>
               <Link
-                href="/curriculo.pdf"
+                href="/Currículo profissional.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full border border-foreground/15 px-6 py-3 text-sm transition-all hover:border-foreground/30 hover:bg-foreground/5"
